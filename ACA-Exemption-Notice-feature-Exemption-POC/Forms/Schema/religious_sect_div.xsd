@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.cms.hhs.gov/exemptions" targetNamespace="http://www.cms.hhs.gov/exemptions" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+  <xs:annotation>
+    <xs:documentation>Schema v0.1 - Religious Sect or Divisions Types</xs:documentation>
+  </xs:annotation>
+
+  <!-- Religious Sect / Divisions Person Type -->
+  <xs:complexType name="ReligiousSectDivPersonType">
+    <xs:sequence>
+      <xs:element name="personal_information" type="PersonType"/>
+      <xs:element name="tax_questions" type="TaxQuestionsType"/>
+      <xs:element name="rel_sect_div" type="ReligiousSectDivType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Religious Sect / Divisions Type -->
+  <xs:complexType name="ReligiousSectDivType">
+    <xs:sequence>
+      <xs:element name="has_approved_4029" type="YesNoType"/>
+      <xs:element name="dependent_underage" type="YesNoType"/>
+      <xs:element name="rel_sect_div_name">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="255"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element name="dist_congregation_name">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="255"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element name="dist_congregation_address" type="AddressType"/>
+      <xs:element type="xs:date" name="membership_start_date"/>
+      <xs:element type="xs:date" name="membership_end_date"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+

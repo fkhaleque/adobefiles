@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.cms.hhs.gov/exemptions" targetNamespace="http://www.cms.hhs.gov/exemptions" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+  <xs:annotation>
+    <xs:documentation>Schema v0.2 - Hardship Types</xs:documentation>
+  </xs:annotation>
+
+  <!-- Hardship Person Type -->
+  <xs:complexType name="HardshipPersonType">
+    <xs:sequence>
+      <xs:element name="personal_information" type="PersonType"/>
+      <xs:element name="tax_questions" type="TaxQuestionsType"/>
+      <xs:element name="hardships" type="HardshipsType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Hardship Type -->
+  <xs:complexType name="HardshipsType">
+    <xs:sequence>
+      <xs:element name="hardship" type="HardshipEntryType" maxOccurs="14"/>
+      <xs:element name="description">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="255"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Hardship Entry Type -->
+  <xs:complexType name="HardshipEntryType">
+    <xs:sequence>
+      <xs:element name="type">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="14"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="tax_year" type="xs:integer"/>
+      <xs:element name="start_date" type="xs:date"/>
+      <xs:element name="end_date" type="xs:date"/>
+      <xs:element name="ongoing" type="YesNoType"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+</xs:schema>
+

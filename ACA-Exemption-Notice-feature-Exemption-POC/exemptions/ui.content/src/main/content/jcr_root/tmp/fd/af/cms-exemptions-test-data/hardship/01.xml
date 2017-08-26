@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?><afData>
+  <afUnboundData>
+    <data>
+      <IsSomeoneHelping>0</IsSomeoneHelping>
+      <DoValidations>Y</DoValidations>
+      <LatinoBox>L</LatinoBox>
+      <NumberOfPerson2s>2</NumberOfPerson2s>
+      <HardshipCommonName>Hardship Selection for Wes Hopkins XML </HardshipCommonName>
+      <HSNUM>6</HSNUM>
+      <Person2Title>Dependent 1 of 1</Person2Title>
+      <name>Wes Hopkins XML </name>
+    </data>
+  </afUnboundData>
+  <afBoundData>
+    <data xmlns:xfa="http://www.xfa.org/schema/xfa-data/1.0/">
+      <hardship>
+        <person1>
+          <personal_information>
+            <legal_name>
+              <first_name>Wes</first_name>
+              <last_name>Hopkins</last_name>
+              <suffix>XML</suffix>
+              <common_name>Wes Hopkins XML </common_name>
+            </legal_name>
+            <dob>1980-01-01</dob>
+            <ssn>123457892</ssn>
+            <sex>M</sex>
+            <rel_to_filer>SELF</rel_to_filer>
+            <race>
+              <white>01</white>
+              <black_african_american>02</black_african_american>
+              <filipino>04</filipino>
+              <indian_american_alaskan_native>03</indian_american_alaskan_native>
+              <korean>06</korean>
+              <asian_indian>07</asian_indian>
+              <chinese/>
+              <asian_other>10</asian_other>
+              <native_hawaiian/>
+              <guamanian_chamorro>12</guamanian_chamorro>
+              <samoan>13</samoan>
+              <pacific_islander_other>14</pacific_islander_other>
+              <other>15</other>
+              <raceother>mutt</raceother>
+            </race>
+            <ethnicity>
+              <mexican>1</mexican>
+              <mexican_american>2</mexican_american>
+              <chicano_a>3</chicano_a>
+              <puerto_rican>4</puerto_rican>
+              <cuban>5</cuban>
+              <ethnicityother>buenos dias</ethnicityother>
+              <other>6</other>
+            </ethnicity>
+            <wantexemption>Y</wantexemption>
+          </personal_information>
+          <tax_questions>
+            <dependants>sweet child omine </dependants>
+            <plan_to_file>Y</plan_to_file>
+            <file_jointly>Y</file_jointly>
+            <claim_dependants>1</claim_dependants>
+            <spouse_name>spouse last </spouse_name>
+          </tax_questions>
+          <hardships xfa:dataNode="dataGroup">
+            <hardship xfa:dataNode="dataGroup">
+              <type>01</type>
+              <tax_year>2014</tax_year>
+              <start_date>2014-01-02</start_date>
+              <ongoing>Y</ongoing>
+            </hardship>
+          </hardships>
+        </person1>
+        <contact>
+          <legal_name>
+            <first_name>Wes</first_name>
+            <last_name>Hopkins</last_name>
+          </legal_name>
+          <home_address>
+            <street>1600 carling</street>
+            <city>ottawa</city>
+            <state>MD</state>
+            <zip>98765</zip>
+            <county>count dracula</county>
+          </home_address>
+          <home_mailing_same>Y</home_mailing_same>
+          <mailing_address>
+            <street>1600 carling</street>
+            <city>ottawa</city>
+            <state>MD</state>
+            <zip>98765</zip>
+            <county>count dracula</county>
+          </mailing_address>
+          <phone_main>1112223334</phone_main>
+          <best_call_time_main>
+            <morning_time>M</morning_time>
+            <weekend_time>W</weekend_time>
+          </best_call_time_main>
+          <wantinfo>N</wantinfo>
+          <spoken_language>English</spoken_language>
+          <written_language>Spanish</written_language>
+        </contact>
+        <person2 xfa:dataNode="dataGroup">
+          <personal_information>
+            <on_p1_return>N</on_p1_return>
+            <tax_filer/>
+            <legal_name>
+              <first_name>spouse</first_name>
+              <last_name>last</last_name>
+              <common_name>spouse last </common_name>
+            </legal_name>
+            <dob>2015-02-02</dob>
+            <ssn>567876542</ssn>
+            <sex>F</sex>
+            <rel_to_filer>SPOUSE</rel_to_filer>
+            <is_spouse>Y</is_spouse>
+            <race>
+              <white>01</white>
+            </race>
+            <wantexemption>Y</wantexemption>
+          </personal_information>
+          <tax_questions>
+            <spouse_name>Wes Hopkins XML </spouse_name>
+            <file_jointly>Y</file_jointly>
+            <plan_to_file>Y</plan_to_file>
+            <claim_dependents>N</claim_dependents>
+          </tax_questions>
+          <hardships>
+            <hardship xfa:dataNode="dataGroup">
+              <type>05</type>
+              <start_date>2015-02-02</start_date>
+              <end_date>2015-03-03</end_date>
+            </hardship>
+            <hardship xfa:dataNode="dataGroup">
+              <type>03</type>
+              <tax_year>2016</tax_year>
+              <start_date>2015-01-01</start_date>
+              <end_date>2016-02-02</end_date>
+            </hardship>
+          </hardships>
+        </person2>
+        <person2 xfa:dataNode="dataGroup">
+          <personal_information>
+            <on_p1_return>Y</on_p1_return>
+            <tax_filer>Wes Hopkins XML </tax_filer>
+            <legal_name>
+              <first_name>sweet</first_name>
+              <middle_name>child</middle_name>
+              <last_name>omine</last_name>
+              <common_name>sweet child omine </common_name>
+            </legal_name>
+            <dob>2015-02-02</dob>
+            <sex>F</sex>
+            <rel_to_filer>baby</rel_to_filer>
+            <race>
+              <white>01</white>
+            </race>
+            <wantexemption>Y</wantexemption>
+          </personal_information>
+          <tax_questions>
+            <plan_to_file>N</plan_to_file>
+          </tax_questions>
+          <hardships>
+            <hardship xfa:dataNode="dataGroup">
+              <type>12</type>
+              <tax_year>2015</tax_year>
+              <start_date>2015-01-01</start_date>
+              <ongoing>Y</ongoing>
+            </hardship>
+            <hardship xfa:dataNode="dataGroup">
+              <type>06</type>
+              <tax_year>2015</tax_year>
+              <start_date>2015-01-01</start_date>
+              <end_date/>
+              <ongoing>Y</ongoing>
+            </hardship>
+          </hardships>
+        </person2>
+        <signature>
+          <sign_date>2015-12-04</sign_date>
+        </signature>
+      </hardship>
+      <form_name>hardship</form_name>
+      <locale>en</locale>
+      <guid>d8ab70d2-0fdd-4843-9a5b-09d57e6547a9</guid>
+    </data>
+  </afBoundData>
+</afData>

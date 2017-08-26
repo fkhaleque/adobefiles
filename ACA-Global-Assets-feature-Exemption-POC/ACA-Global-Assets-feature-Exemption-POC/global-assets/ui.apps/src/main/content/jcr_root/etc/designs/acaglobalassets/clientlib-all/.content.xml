@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:ClientLibraryFolder"
+    categories="[global-assets.all]"
+    embed="[global-assets.core,global-assets.aca,global-assets.adobe,global-assets.common,global-assets.site,global-assets.page,global-assets.topnav,global-assets.colctrl,global-assets.textimage]"/>

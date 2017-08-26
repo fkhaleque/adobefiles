@@ -1,0 +1,8 @@
+#base=.
+jqueryui/themes/base/jquery-ui.css
+datatables/1.10.7/css/jquery.dataTables.min.css
+datatables-tableTools/dataTables.tableTools.css
+font-awesome/font-awesome.css
+globalassets/styles/adobeBlank/adobe-blank.css
+globalassets/styles/widgets/alerts.css
+globalassets/styles/widgets/modalstyles.css

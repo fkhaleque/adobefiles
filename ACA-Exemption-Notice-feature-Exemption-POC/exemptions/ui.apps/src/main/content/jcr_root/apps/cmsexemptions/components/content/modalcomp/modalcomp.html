@@ -1,0 +1,44 @@
+<!--/*
+    Copyright 2015 Adobe Systems Incorporated
+  
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+  
+        http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/-->
+
+<!-- Modal Starts -->
+<!-- The modal appears unwrapped in "edit" mode so that it can be authored, 
+but is wrapped in preview or live mode so that it is only displayed when 
+the script is called. -->
+
+<div data-sly-unwrap="${wcmmode.edit || wcmmode.design}" tabindex="-1"
+	class="modal fade in info-modal" id="${properties.idModal}"
+	role="alertdialog" aria-labelledby="modalLabel_${properties.idModal}"
+	aria-describedby="modalBody_${properties.idModal}" aria-hidden="true">
+	<div class="modal-dialog modal-${properties.modalSize}">
+		<div class="modal-header">
+			<div class="row">
+				<div class="col-xs-12 col-md-10">
+					<h3 id="modalLabel_${properties.idModal}" class="info-title">${properties.title}</h3>
+				</div>
+				<button data-sly-test="${properties.showClose}" role="button"
+					class="btn btn-md modal-close-btn married" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+		<div class="modal-content">
+			<div class="modal-body">
+				<div id="modalBody_${properties.idModal}"
+					data-sly-resource="${ @path='par', resourceType='foundation/components/parsys'}"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Modal End  -->

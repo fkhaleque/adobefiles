@@ -1,0 +1,270 @@
+/*
+	radio and checkbox treatment
+	
+*/
+
+.guideCheckBoxItem:hover,
+.guideCheckBoxItem:active,
+.guideCheckBoxItem:focus,
+.guideRadioButtonItem:hover,
+.guideRadioButtonItem:active,
+.guideRadioButtonItem:focus
+{
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.25) none repeat scroll 0% 0%; 
+}
+
+/* for IE: don't background the area around the radio */
+.guideFieldWidget input[type='checkbox'], 
+.guideFieldWidget input[type='radio']
+{
+	background: none;
+}
+
+.guideCheckBoxItem,
+.guideRadioButtonItem
+{
+	transition: all 0.25s ease-in-out 0s;
+	border-radius: 0.25em;
+	display: block;
+	font-weight: normal;
+	margin: 2% 0px;
+	width: 100%;
+	color: #444;
+	background: #EEE none repeat scroll 0% 0%;
+	
+	label {
+		font-weight: normal;
+		line-height: 38px;
+	}
+
+  
+  .guideFieldWidget {
+    margin-top: 0px;
+    width: auto;
+  }
+}
+
+/* highlight checked radios */
+.guideCheckBoxItem.selected,
+.guideRadioButtonItem.selected,
+.guideCheckBoxItem.selected:hover,
+.guideRadioButtonItem.selected:hover
+{
+	background-color: #0076B0;
+	
+	label {
+		color: white;
+	}
+}
+
+.guideFieldVerticalAlignment
+{
+	width: 100%;
+	display: table;
+	padding-left: 1em;
+	line-height: 1em;
+}
+
+.guideFieldNode .guideFieldError {
+	font-weight:bold;
+}
+
+.validation-failure 
+{
+	.guideFieldWidget.textField,
+	.guideFieldWidget.numericInput,
+	.guideFieldWidget.dateTimeEdit,
+	.guideFieldWidget.dropDownList,
+	.guideRadioButtonGroupItems,
+	.guideCheckBoxGroupItems
+	{
+		border: 2px solid red;
+	}
+	
+}
+
+.guideFieldWidget.multiline {
+  min-height: 60px;
+}
+
+/* left-align tooltip text */
+.guideFieldDescription .short
+{
+	text-align: left;
+}
+
+.guideformtitle {
+  padding-left: @padding-large-horizontal;
+}
+
+.guideFieldWidget.multiline {
+    min-height:80px;
+    margin-bottom: 10px;
+}
+
+.guidefield .fieldsetLayoutLegend{
+	font-size: 16px;
+	line-height: 24px;
+	color: #666666;
+	display: table;
+	font-weight: 600;
+	border: none;
+	
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	
+
+	
+}
+
+#guide-mobile-navigator-wrapper,  
+.guide-header-bar-wrapper {
+	display: none;
+}
+
+@media(max-width:@screen-sm-max) {
+  .guidetoolbar,
+  .guidetoolbar .guideFieldNode,
+  .guidetoolbar .fileattachmentlisting {
+    padding:0px;
+    margin:0px;
+  }
+
+  .header {
+    height: auto;
+  }
+}
+
+.wizard-navigators {
+    display: none;
+}
+
+/* BEGIN: screener styling */
+.tip {
+	background-color: #F4F4F4;
+	padding: 20px;
+	margin-top: 20px;	
+}
+
+.screener-blue-panel 
+{
+	text-align: center;
+	background-color: #055072;
+	width: 95%;
+	padding: 0px 20px 20px 20px;
+
+	.guideTextDraw {
+    	color: #FFF;
+    	font-weight: bold;
+    	font-size: 12pt;
+	}
+
+	.glyphicons {
+		font-size: 50px;
+		padding: 10px;
+	}
+
+	.blue-panel-title {
+		margin:10px;
+	}
+
+}
+
+.seeExemptionsPanel {
+	float:right;
+}
+
+@media(max-width:991px) {
+	.screener-blue-panel {
+		width: 100%;
+		margin-top: 20px;
+	}
+	.seeExemptionsPanel {
+		float:none;
+	}	
+}
+
+.screener-li li {
+    margin-bottom: 5px;
+}
+
+/* END: screener styling */
+
+/* psuedo-modal */
+.psuedo-modal
+{
+	background-color: #006692;
+	color: white !important;
+	padding: 0px 30px 30px 30px;
+}
+
+/* titles in guides should be Open Sans, not bitter */
+.guideBody h1
+{
+	font-family: "Open Sans", sans-serif;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.panel h2
+{
+	margin: 0px 0px 10px 0px;
+}
+
+.centered-toolbar {
+	text-align: center;
+}
+
+.btn-wide {
+	width:500px;
+}
+.btn-wide button {
+	width:100%;
+}
+
+/* header */
+.title-container
+{ 
+	margin: 0px auto;
+	background: #006692 none repeat scroll 0% 0%;
+	padding: 0px;
+	color: #ffffff;
+}
+.title-container h1 
+{
+	font-size: 36px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.notAField
+{
+	input,
+	input:hover,
+	input:focus,
+	input:active
+	{
+		background:none !important;
+		border:none !important;
+		outline: none !important;
+	}
+	
+	.datepicker-calendar-icon {
+		display: none;
+	}
+	
+}
+
+@media(max-width:991px) 
+{
+	.title-container h1 
+	{
+		padding-left: 10px;
+		padding-top: auto;
+		padding-bottom: auto;		
+	}
+}
+
+

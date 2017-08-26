@@ -1,0 +1,162 @@
+
+.progress-board 
+{
+	
+	.noProgress_external_nav {
+		display: none;
+	}
+	
+  color: #fff;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  position: relative;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  a:hover {
+    border-bottom: none;
+    text-decoration: none;
+    color: #def;
+    background: none !important;
+  }
+
+  a.button {
+    position: absolute;
+    text-decoration: none !important;
+    border-bottom: none;
+    font-size: 2em;
+    padding: .45em .25em;
+    color: #fff;
+    top: 0;
+  }
+
+  @media (min-width: 992px) {
+    a.button {
+      display: none;
+    }
+  }
+
+  a.button.menuButton {
+    right: .25em;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  a.button.backButton {
+    left: .25em;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  ol {
+    background: #055072;
+    display: block;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  ol li {
+    display: none;
+    position: relative;
+    padding: 1.5em .15em;
+    margin: 0;
+    color: #eaf7fd;
+    font-size: .8em;
+  }
+
+  @media (min-width: 1200px) {
+    ol li {
+      font-size: 1em;
+    }
+  }
+
+  ol li a:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  @media (min-width: 992px) {
+    ol li {
+      border-bottom: none;
+      display: inline-block;
+      padding: 1.25em 1em;
+    }
+  }
+
+  ol li.current {
+    display: block;
+  }
+
+  @media (min-width: 992px) {
+    ol li.current {
+      display: inline-block;
+      background: none;
+    }
+  }
+  @media (min-width: 992px) {
+    ol li.current:after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      z-index: 600;
+      margin: 0 auto;
+      left: 40%;
+      border-top: .75em solid #0C77AE;
+      border-bottom-color: inherit;
+      border-left: .75em solid transparent;
+      border-right: .75em solid transparent;
+    }
+  }
+
+  ol li.completed {
+    color: #fff;
+  }
+
+  a.closeButton {
+    display: none;
+  }
+
+  @media (max-width: 991px) {
+    .showMenu {
+      opacity: 0.9;
+      z-index: 1000;
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  .showMenu li {
+    display: block;
+  }
+
+  :after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+
+  ol {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+    display: inline-block;
+    padding: .5em 0;
+    clear: both;
+  }
+
+  li .glyphicon {
+    margin-right: .25em;
+  }
+}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:vlt="http://www.day.com/jcr/vault/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:created="{Date}2017-05-18T12:26:09.225-05:00"
+    jcr:createdBy="admin"
+    jcr:description="UI content package for CMS Exemptions"
+    jcr:lastModified="{Date}2017-05-18T12:26:09.225-05:00"
+    jcr:lastModifiedBy="admin"
+    jcr:primaryType="vlt:PackageDefinition"
+    acHandling="Overwrite"
+    buildCount="1"
+    group="CMS Exemptions Content Package"
+    lastUnwrapped="{Date}2017-05-18T12:26:09.225-05:00"
+    lastUnwrappedBy="admin"
+    lastWrapped="{Date}2017-05-18T12:26:09.225-05:00"
+    lastWrappedBy="admin"
+    name="exemptions.ui.content"
+    requiresRestart="{Boolean}false"
+    requiresRoot="{Boolean}false"
+    version="0.0.12-SNAPSHOT">
+    <thumbnail.png/>
+    <filter jcr:primaryType="nt:unstructured">
+        <f0
+            jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="/content/cmsexemptions"
+            rules="[]"/>
+        <f1
+            jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="/content/dam/cmsexemptions"
+            rules="[]"/>
+        <f2
+            jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="/content/forms/af/cms-exemptions"
+            rules="[]"/>
+        <f3
+            jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="/content/dam/formsanddocuments/cms-exemptions"
+            rules="[]"/>
+        <f4
+            jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="/tmp/fd/af/cms-exemptions-test-data"
+            rules="[]"/>
+    </filter>
+</jcr:root>

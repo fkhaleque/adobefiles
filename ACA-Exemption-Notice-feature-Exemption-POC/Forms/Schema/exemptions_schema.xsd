@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.cms.hhs.gov/exemptions" targetNamespace="http://www.cms.hhs.gov/exemptions" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+  <!-- Core & Custom Applicaton Types -->
+  <xs:include schemaLocation="core.xsd"/>
+  <xs:include schemaLocation="hardship.xsd"/>
+  <xs:include schemaLocation="affordability.xsd"/>
+  <xs:include schemaLocation="religious_sect_div.xsd"/>
+
+  <xs:annotation>
+    <xs:documentation>Schema v0.6 - Exemption Application Schema</xs:documentation>
+  </xs:annotation>
+
+  <xs:element name="data" type="ExemptionApplicationType"/>
+
+  <!-- Exemption App Type (Doc Root) -->
+  <xs:complexType name="ExemptionApplicationType">
+	  <xs:sequence>
+		  <xs:element name="system_date" type="xs:date"/>
+		  <xs:element name="guid" type="xs:string"/>
+		  <xs:element name="form_name">
+		      <xs:simpleType>
+	            <xs:restriction base="xs:string">
+	                <xs:maxLength value="24"/>
+	            </xs:restriction>
+	          </xs:simpleType>
+		  </xs:element>
+		  <xs:element name="locale" type="xs:string"/>
+		<xs:choice>
+			<!-- Notice Types -->
+			<xs:element name="hardship" type="HardshipExemptionApplicationType"/>
+			<xs:element name="affordability" type="AffordabilityExemptionApplicationType"/>
+			<xs:element name="religious_sect_division" type="ReligiousSectDivApplicationType"/>
+		</xs:choice>
+	  </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="HardshipExemptionApplicationType">
+    <xs:sequence>
+      <xs:element name="contact" type="ContactType"/>
+      <xs:element name="person1" type="HardshipPersonType"/>
+      <xs:element name="spouse" type="HardshipPersonType"/>
+      <xs:element name="person2" type="HardshipPersonType" maxOccurs="10" minOccurs="0"/>
+      <xs:element name="signature" type="SignatureType"/>
+      <xs:element name="appendixc" type="AppendixCType"/>
+      <xs:element name="suppdocremind" type="SupportDocsReminderType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AffordabilityExemptionApplicationType">
+    <xs:sequence>
+      <xs:element name="preamble" type="AffordabilityPreambleType"/>
+      <xs:element name="contact" type="ContactType"/>
+      <xs:element name="person1" type="AffordabilityPersonType"/>
+      <xs:element name="spouse" type="AffordabilityPersonType"/>
+      <xs:element name="person2" type="AffordabilityPersonType" maxOccurs="10" minOccurs="0"/>
+      <xs:element name="signature" type="SignatureType"/>
+      <xs:element name="appendixa" type="AppendixAType" maxOccurs="10" minOccurs="1"/>
+      <xs:element name="appendixc" type="AppendixCType"/>
+      <xs:element name="suppdocremind" type="SupportDocsReminderType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ReligiousSectDivApplicationType">
+    <xs:sequence>
+      <xs:element name="contact" type="ContactType"/>
+      <xs:element name="person1" type="ReligiousSectDivPersonType"/>
+      <xs:element name="spouse" type="ReligiousSectDivPersonType"/>
+      <xs:element name="person2" type="ReligiousSectDivPersonType" maxOccurs="10" minOccurs="0"/>
+      <xs:element name="signature" type="SignatureType"/>
+      <xs:element name="appendixc" type="AppendixCType"/>
+      <xs:element name="suppdocremind" type="SupportDocsReminderType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

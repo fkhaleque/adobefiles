@@ -1,0 +1,2 @@
+#base=javascript
+af-custom-controls.js

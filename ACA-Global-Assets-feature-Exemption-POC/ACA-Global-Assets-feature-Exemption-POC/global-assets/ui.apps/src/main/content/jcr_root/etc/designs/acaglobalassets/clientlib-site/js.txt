@@ -1,0 +1,3 @@
+#base=js
+coral.min.js
+script.js

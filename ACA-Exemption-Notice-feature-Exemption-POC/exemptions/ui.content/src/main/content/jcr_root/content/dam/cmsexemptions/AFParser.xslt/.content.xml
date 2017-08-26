@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:Z="urn:schemas-microsoft-com:"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:lockable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="cc7e6b1b-893d-49d7-90e9-bb1418d5e871">
+    <jcr:content
+        cq:name="AFParser.xslt"
+        cq:parentPath="/content/dam/cmsexemptions"
+        dam:assetState="processing"
+        dam:relativePath="cmsexemptions/AFParser.xslt"
+        jcr:lastModified="{Date}2017-05-18T08:53:39.114-05:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        Z:Win32CreationTime="Sun, 11 Oct 2015 15:27:29 GMT"
+        Z:Win32FileAttributes="00000020"
+        Z:Win32LastAccessTime="Sun, 11 Oct 2015 15:29:11 GMT"
+        Z:Win32LastModifiedTime="Fri, 09 Oct 2015 16:15:07 GMT">
+        <metadata
+            dam:extracted="{Date}2017-05-18T08:53:36.049-05:00"
+            dam:sha1="a789448486db90f17aa3c983cb7b65968a4c7011"
+            dam:size="{Long}1176"
+            dc:format="application/xslt+xml"
+            dc:modified="{Date}2015-11-11T17:45:35.157-05:00"
+            jcr:lastModified="{Date}2017-05-18T08:53:39.114-05:00"
+            jcr:lastModifiedBy="admin"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

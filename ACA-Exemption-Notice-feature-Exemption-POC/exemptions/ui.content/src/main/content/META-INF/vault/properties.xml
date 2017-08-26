@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>FileVault Package Properties</comment>
+<entry key="createdBy">admin</entry>
+<entry key="name">exemptions.ui.content</entry>
+<entry key="lastModified">2017-05-18T12:26:09.225-05:00</entry>
+<entry key="lastModifiedBy">admin</entry>
+<entry key="requiresRestart">false</entry>
+<entry key="acHandling">Overwrite</entry>
+<entry key="created">2017-05-18T12:26:10.990-05:00</entry>
+<entry key="buildCount">1</entry>
+<entry key="version">0.0.12-SNAPSHOT</entry>
+<entry key="requiresRoot">false</entry>
+<entry key="dependencies"/>
+<entry key="packageFormatVersion">2</entry>
+<entry key="description">UI content package for CMS Exemptions</entry>
+<entry key="group">CMS Exemptions Content Package</entry>
+<entry key="lastWrapped">2017-05-18T12:26:09.225-05:00</entry>
+<entry key="lastWrappedBy">admin</entry>
+</properties>

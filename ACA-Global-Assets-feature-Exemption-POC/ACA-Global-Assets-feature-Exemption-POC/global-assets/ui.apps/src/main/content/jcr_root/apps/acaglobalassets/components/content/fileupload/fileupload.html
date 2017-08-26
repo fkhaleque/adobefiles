@@ -1,0 +1,45 @@
+<h2>Choose File(s)</h2>
+<coral-fileupload id="fileUpload" action="/drawer/upload/fileupload/files" multiple>
+<span>
+	<div coral-fileupload-dropzone class="coral-FileUpload-dropZone">
+		<span class="dropzone glyphicons cloud-download"></span>
+		<span class="dropzone drop-zone-text">&nbsp;Drop Files Here&nbsp;or&nbsp;</span>
+		<span class="dropzone"><button coral-fileupload-select is="coral-button" class="btn btn-green btn-sm">Select files...</button></span>
+		<button coral-fileupload-submit variant="primary" is="coral-button" class="hidden">Upload</button>
+	</div>
+</span>
+</coral-fileupload>
+
+<script>
+
+Coral.commons.ready(fileUpload, function(){
+	
+	fileUpload.on('coral-fileupload:fileadded', function(event) {
+        console.log('fileadded');
+        var item = event.detail.item;
+        var size = Math.round(item.size / 1000);
+		
+        $(document.createElement('li'))
+          .data('filename', item.name)
+          .text(item.name + ' - ' + (size === 0 ? item.size + ' bytes ' : size + ' kb '))
+          .attr('class','coral-List-item')
+          .append('<a coral-fileupload-removefile="' + item.name + '"class="removeFile" href="#" style=""><i class="coral-Icon coral-Icon--delete coral-MinimalButton-icon"></i></a><span class="progress"></span>')
+          .appendTo($("#hclist ol"));
+        
+        //$("#hclist:hidden").show();
+
+      })
+      .on('coral-fileupload:fileremoved', function(event) {
+        console.log('fileremoved');
+        var item = event.detail.item;
+
+        $("#hclist ol").children('li').each(function() {
+          if ($(this).data('filename') === item.name) {
+            $(this).remove();
+            return false;
+          }
+        });
+      });
+
+});
+</script>

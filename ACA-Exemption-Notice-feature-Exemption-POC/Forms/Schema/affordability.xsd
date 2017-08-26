@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.cms.hhs.gov/exemptions" targetNamespace="http://www.cms.hhs.gov/exemptions" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+  <xs:annotation>
+    <xs:documentation>Schema v0.4 - Affordability Types</xs:documentation>
+  </xs:annotation>
+
+  <!-- Affordability Preamble Type -->
+  <xs:complexType name="AffordabilityPreambleType">
+    <xs:sequence>
+      <xs:element name="fill_app_no_tax_return" type="YesNoType"/>
+      <xs:element name="fill_app_included_state" type="YesNoType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Affordability Person Type -->
+  <xs:complexType name="AffordabilityPersonType">
+    <xs:sequence>
+      <xs:element name="personal_information" type="PersonType"/>
+      <xs:element name="tax_questions" type="TaxQuestionsType"/>
+      <xs:element name="ffm">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="additional_questions" type="AffordabilityPersonDetailType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="income_coverage" type="AffordabilityIncomeCoverageType"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Affordability Income Coverage Type -->
+  <xs:complexType name="AffordabilityIncomeCoverageType">
+    <xs:sequence>
+      <xs:element name="sbm">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="tot_income_this_yr_amt" type="xs:decimal"/>
+            <xs:element name="tot_income_next_yr_amt" type="xs:decimal"/>
+            <xs:element name="total_emp_withheld_amt" type="xs:decimal"/>
+            <xs:element name="coverage_job_offered" type="YesNoType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ffm">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="other_health_coverage" type="AffordabilityOtherHealthCoverageType"/>
+            <xs:element name="incomes_jobs" type="AffordabilityIncomesType"/>
+            <xs:element name="incomes_other" type="AffordabilityOtherIncomesType"/>
+            <xs:element name="deductions" type="AffordabilityDeductionsType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Affordability Additional Person Detail Type -->
+  <xs:complexType name="AffordabilityPersonDetailType">
+    <xs:sequence>
+      <xs:element name="pregnant" type="YesNoType"/>
+      <xs:element name="child_number" type="xs:integer"/>
+      <xs:element name="care_for_child" type="YesNoType"/>
+      <xs:element name="fulltime_student" type="YesNoType"/>
+      <xs:element name="foster_care" type="YesNoType"/>
+      <xs:element name="regular_tabacco_user" type="YesNoType"/>
+      <xs:element name="citizen_us_national" type="YesNoType"/>
+      <xs:element name="citizen_naturalized_derived" type="YesNoType"/>
+      <xs:element name="id_alien">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="11"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element name="id_cert">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="13"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element name="eligible_immigration_status" type="YesNoType"/>
+      <xs:element name="immigration_doc_type" type="xs:string"/>
+      <xs:element name="immigration_status_type" type="xs:string"/>
+      <xs:element name="immigration_full_name" type="xs:string"/>
+      <xs:element name="id_alien_i94">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="11"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element name="id_card_passport">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="13"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element name="id_sevis_date">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="12"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element name="id_other">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="11"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element name="lived_us_since_1996" type="YesNoType"/>
+      <xs:element name="veteran_acive_duty" type="YesNoType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Affordability Other Health Coverage -->
+  <xs:complexType name="AffordabilityOtherHealthCoverageType">
+    <xs:sequence>
+      <xs:element name="enrolled_in_coverage" type="YesNoType"/>
+      <xs:element name="coverage_type" type="AffordabilityCoverageType"/>
+      <xs:element name="plan_retiree_health" type="YesNoType"/>
+      <xs:element name="plan_limited_benefit" type="YesNoType"/>
+      <xs:element name="coverage_job_offered" type="YesNoType"/>
+      <xs:element name="coverage_job_withheld_amt" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Affordability Coverage Type -->
+  <xs:complexType name="AffordabilityCoverageType">
+    <xs:sequence>
+      <xs:element name="employer" type="xs:string"/>
+      <xs:element name="cobra" type="xs:string"/>
+      <xs:element name="medicaid" type="xs:string"/>
+      <xs:element name="chip" type="xs:string"/>
+      <xs:element name="medicare" type="xs:string"/>
+      <xs:element name="va_health_care" type="xs:string"/>
+      <xs:element name="peace_corp" type="xs:string"/>
+      <xs:element name="tribcare" type="xs:string"/>
+      <xs:element name="other" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Affordability Job & Incomes Type -->
+  <xs:complexType name="AffordabilityIncomesType">
+    <xs:sequence>
+      <xs:element name="income_this_yr" type="YesNoType"/>
+      <xs:element name="income" type="AffordabilityIncomeType" maxOccurs="10"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Affordability Job & Income Info Type -->
+  <xs:complexType name="AffordabilityIncomeType">
+    <xs:sequence>
+      <xs:element name="self_employed" type="YesNoType"/>
+      <xs:element name="employer_business_name" type="xs:string"/>
+      <xs:element name="wages_net_amt" type="xs:decimal"/>
+      <xs:element name="wages_frequency" type="FrequencyType"/>
+      <xs:element name="hours_avg_weekly" type="xs:integer"/>
+      <xs:element name="job_start_date" type="xs:date"/>
+      <xs:element name="job_end_date" type="xs:date"/>
+      <xs:element name="job_no_end_date_flag" type="xs:string"/>
+      <xs:element name="job_months_income_this_yr" type="AffordabilityMonthsExpectIncomeType"/>
+      <xs:element name="job_months_income_next_yr" type="AffordabilityMonthsExpectIncomeType"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Affordability Months Expect Income Type -->
+  <xs:complexType name="AffordabilityMonthsExpectIncomeType">
+    <xs:sequence>
+      <xs:element name="job_yr" type="xs:integer"/>
+      <xs:element name="jan" type="xs:string"/>
+      <xs:element name="feb" type="xs:string"/>
+      <xs:element name="mar" type="xs:string"/>
+      <xs:element name="apr" type="xs:string"/>
+      <xs:element name="may" type="xs:string"/>
+      <xs:element name="june" type="xs:string"/>
+      <xs:element name="july" type="xs:string"/>
+      <xs:element name="aug" type="xs:string"/>
+      <xs:element name="sept" type="xs:string"/>
+      <xs:element name="oct" type="xs:string"/>
+      <xs:element name="nov" type="xs:string"/>
+      <xs:element name="dec" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Affordability Other Income(s) Type -->
+  <xs:complexType name="AffordabilityOtherIncomesType">
+    <xs:sequence>
+      <xs:element name="no_other_income" type="YesNoType"/>
+      <xs:element name="income" type="AffordabilityOtherIncomeType" maxOccurs="8"/>
+      <xs:element name="other_income_other" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Affordability Other Income Type -->
+  <xs:complexType name="AffordabilityOtherIncomeType">
+    <xs:sequence>
+      <xs:element name="type">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="8"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="other_income_amt" type="xs:decimal"/>
+      <xs:element name="other_income_frequency" type="FrequencyType"/>
+      <xs:element name="start_date" type="xs:date"/>
+      <xs:element name="end_date" type="xs:date"/>
+      <xs:element name="ongoing" type="YesNoType"/>
+      <xs:element name="expected_months" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Affordability Deduction(s) Type -->
+  <xs:complexType name="AffordabilityDeductionsType">
+    <xs:sequence>
+      <xs:element name="no_planned_deduct" type="YesNoType"/>
+      <xs:element name="deduction" type="AffordabilityDeductionType" maxOccurs="4"/>
+      <xs:element name="deduct_other" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Affordability Deduction Type -->
+  <xs:complexType name="AffordabilityDeductionType">
+    <xs:sequence>
+      <xs:element name="type">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="yrly_est_amt" type="xs:decimal"/>
+      <xs:element name="deduct_taken_past_yr" type="YesNoType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+
+
+
+

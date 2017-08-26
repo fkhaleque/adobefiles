@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/etc/designs/fd/af/default"
+        cq:deviceGroups="/etc/mobile/groups/responsive"
+        cq:lastModified="{Date}2015-11-06T13:54:33.734-05:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/libs/fd/af/templateForFragment/defaultFragmentTemplate"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Ethnicity"
+        sling:resourceType="fd/af/components/page/basePageForFragment">
+        <guideContainer
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="fd/af/components/guideFragmentContainer"
+            fragmentModelRoot="/EthnicityType"
+            guideCss="guideContainer"
+            guideNodeClass="guideContainerNode"
+            name="fragment1"
+            xsdRef="/content/dam/formsanddocuments/cms-exemptions/Schema/exemptions_schema.xsd">
+            <layout
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="fd/af/layouts/defaultGuideLayout"
+                toolbarPosition="Bottom"/>
+            <rootPanel
+                jcr:lastModified="{Date}2015-11-04T15:13:49.230-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="fd/af/components/rootPanel"
+                guideNodeClass="rootPanelNode"
+                name="guideRootPanel"
+                panelSetType="Navigable">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="fd/af/layouts/gridFluidLayout"
+                    columns="3"
+                    nonNavigable="true"
+                    toolbarPosition="Bottom"/>
+                <items
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="fd/af/layouts/gridFluidLayout">
+                    <guidetextdraw
+                        jcr:created="{Date}2015-11-04T15:13:55.538-05:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2015-11-06T11:07:30.368-05:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="fd/af/components/guidetextdraw"
+                        _value="&lt;p>&lt;b>If Hispanic/Latino: ethnicity (Optional)&lt;/b>&lt;/p>&#xa;"
+                        colspan="3"
+                        guideNodeClass="guideTextDraw"
+                        name="textdraw1446665850217"/>
+                    <guidecheckbox
+                        jcr:created="{Date}2015-11-04T15:13:58.593-05:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2015-11-04T15:13:58.593-05:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Mexican"
+                        sling:resourceType="fd/af/components/guidecheckbox"
+                        alignment="guideFieldVerticalAlignment"
+                        bindRef="/EthnicityType/mexican"
+                        guideNodeClass="guideCheckBox"
+                        hideTitle="true"
+                        name="mexican"
+                        options="[1=Mexican]"
+                        title="Check box"/>
+                    <guidecheckbox_1373342625
+                        jcr:created="{Date}2015-11-04T15:14:03.762-05:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2015-11-04T15:14:03.762-05:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Check box"
+                        sling:resourceType="fd/af/components/guidecheckbox"
+                        alignment="guideFieldVerticalAlignment"
+                        bindRef="/EthnicityType/mexican_american"
+                        guideNodeClass="guideCheckBox"
+                        hideTitle="true"
+                        name="mexican_american"
+                        options="[2=Mexican American]"
+                        title="Check box"/>
+                    <guidecheckbox_754890091
+                        jcr:created="{Date}2015-11-04T15:14:06.442-05:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2015-11-04T15:14:06.442-05:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Check box"
+                        sling:resourceType="fd/af/components/guidecheckbox"
+                        alignment="guideFieldVerticalAlignment"
+                        bindRef="/EthnicityType/chicano_a"
+                        guideNodeClass="guideCheckBox"
+                        hideTitle="true"
+                        name="chicano_a"
+                        options="[3=Chicano American]"
+                        title="Check box"/>
+                    <guidecheckbox_1454917925
+                        jcr:created="{Date}2015-11-04T15:14:08.352-05:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2015-11-04T15:14:08.352-05:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Check box"
+                        sling:resourceType="fd/af/components/guidecheckbox"
+                        alignment="guideFieldVerticalAlignment"
+                        bindRef="/EthnicityType/puerto_rican"
+                        guideNodeClass="guideCheckBox"
+                        hideTitle="true"
+                        name="puerto_rican"
+                        options="[4=Puerto Rican]"
+                        title="Check box"/>
+                    <guidecheckbox_238281704
+                        jcr:created="{Date}2015-11-04T15:14:11.597-05:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2015-11-04T15:14:11.597-05:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Check box"
+                        sling:resourceType="fd/af/components/guidecheckbox"
+                        alignment="guideFieldVerticalAlignment"
+                        bindRef="/EthnicityType/cuban"
+                        guideNodeClass="guideCheckBox"
+                        hideTitle="true"
+                        name="cuban"
+                        options="[5=Cuban]"
+                        title="Check box"/>
+                    <guidetextbox
+                        jcr:created="{Date}2015-11-04T15:14:16.649-05:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2015-11-06T13:54:33.727-05:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Other Hispanic or Latino Ethnicity"
+                        sling:resourceType="fd/af/components/guidetextbox"
+                        assistPriority="custom"
+                        bindRef="/EthnicityType/ethnicityother"
+                        colspan="2"
+                        guideNodeClass="guideTextBox"
+                        maxChars="15"
+                        name="ethnicityother"
+                        valueCommitScript="this.value=common.utils.makeAlpha(this.value)"/>
+                    <guidedropdownlist
+                        jcr:created="{Date}2015-11-04T15:14:19.472-05:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2015-11-04T15:14:19.472-05:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Other"
+                        sling:resourceType="fd/af/components/guidedropdownlist"
+                        assistPriority="custom"
+                        bindRef="/EthnicityType/other"
+                        calcExp="(ethnicityother.value!=null?&quot;6&quot;:null)"
+                        guideNodeClass="guideDropDownList"
+                        name="other"
+                        options="[6=6]"
+                        visibleExp="false"/>
+                </items>
+            </rootPanel>
+            <assets jcr:primaryType="nt:unstructured">
+                <dictionary jcr:primaryType="nt:unstructured">
+                    <es/>
+                </dictionary>
+            </assets>
+        </guideContainer>
+    </jcr:content>
+</jcr:root>

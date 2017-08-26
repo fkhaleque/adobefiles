@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.cms.hhs.gov/exemptions" targetNamespace="http://www.cms.hhs.gov/exemptions" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+  <xs:annotation>
+    <xs:documentation>Schema v0.5 - Core Types</xs:documentation>
+  </xs:annotation>
+
+  <!-- Name Type -->
+  <xs:complexType name="LegalNameType">
+    <xs:sequence>
+  	  <xs:element name="first_name">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="25"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element name="middle_name">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="25"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element name="last_name">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="50"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element name="suffix">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="6"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+  	  <xs:element name="common_name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Contact Type -->
+  <xs:complexType name="ContactType">
+    <xs:sequence>
+      <xs:element name="legal_name" type="LegalNameType"/>
+      <xs:element name="home_address" type="AddressType"/>
+      <xs:element name="mailing_address" type="AddressType"/>
+      <xs:element name="home_mailing_same" type="YesNoType"/>
+      <xs:element name="wantinfo" type="YesNoType"/>
+      <xs:element name="email" type="EmailType"/>
+      <xs:element name="spoken_language">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="20"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element name="written_language">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="20"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element name="phone_main" type="PhoneNumberType"/>
+      <xs:element name="best_call_time_main" type="BestCallTimeType"/>
+      <xs:element name="phone_other" type="PhoneNumberType"/>
+      <xs:element name="best_call_time_other" type="BestCallTimeType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Best Call Time Type -->
+  <xs:complexType name="BestCallTimeType">
+    <xs:sequence>
+      <xs:element name="morning_time">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+            <xs:enumeration value="M"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="afternoon_time">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+            <xs:enumeration value="A"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="evening_time">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+            <xs:enumeration value="P"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="weekend_time">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+            <xs:enumeration value="W"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Address Type -->
+  <xs:complexType name="AddressType">
+    <xs:sequence>
+      <xs:element name="street">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="95"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element name="aptno">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="15"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element name="city">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="35"/>  <!-- serco is 35, but longest city in USA is 23 -->
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element name="state">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="2"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element name="zip">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="5"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element name="county">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="35"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Ethnicity Type -->
+  <xs:complexType name="EthnicityType">
+    <xs:sequence>
+      <xs:element name="mexican">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+            <xs:enumeration value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="mexican_american">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+            <xs:enumeration value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="chicano_a">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+            <xs:enumeration value="3"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="puerto_rican">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+            <xs:enumeration value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="cuban">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+            <xs:enumeration value="5"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="other">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+            <xs:enumeration value="6"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ethnicityother">
+	      <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="15"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Race Type -->
+  <xs:complexType name="RaceType">
+    <xs:sequence>
+      <xs:element name="white">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+            <xs:enumeration value="01"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="black_african_american">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+            <xs:enumeration value="02"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="indian_american_alaskan_native">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+            <xs:enumeration value="03"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="filipino">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+            <xs:enumeration value="04"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="japanese">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+            <xs:enumeration value="05"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="korean">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+            <xs:enumeration value="06"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="asian_indian">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+            <xs:enumeration value="07"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="chinese">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+            <xs:enumeration value="08"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="vietnamese">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+            <xs:enumeration value="09"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="asian_other">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+            <xs:enumeration value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="native_hawaiian">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+            <xs:enumeration value="11"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="guamanian_chamorro">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+            <xs:enumeration value="12"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="samoan">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+            <xs:enumeration value="13"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="pacific_islander_other">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+            <xs:enumeration value="14"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="other">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+            <xs:enumeration value="15"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="raceother">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="15"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Person Type -->
+  <xs:complexType name="PersonType">
+    <xs:sequence>
+  	  <xs:element name="is_spouse" type="YesNoType"/>
+      <xs:element name="legal_name" type="LegalNameType"/>
+      <xs:element type="xs:date" name="dob"/>
+      <xs:element name="sex">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+            <xs:enumeration value="M"/>
+            <xs:enumeration value="F"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ssn" type="SSNType"/>
+      <xs:element name="wantexemption" type="YesNoType"/>
+      <xs:element name="on_p1_return" type="YesNoType"/>
+      <xs:element name="tax_filer">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="100"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element name="rel_to_filer">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="25"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element name="ethnicity" type="EthnicityType"/>
+      <xs:element name="race" type="RaceType"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Tax Questions Type -->
+  <xs:complexType name="TaxQuestionsType">
+    <xs:sequence>
+      <xs:element name="plan_to_file" type="YesNoType"/>
+      <xs:element name="file_jointly" type="YesNoType"/>
+      <xs:element name="spouse_name">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="100"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+      <xs:element name="claim_dependants" type="xs:string"/>
+      <xs:element name="dependants">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="100"/>
+            </xs:restriction>
+          </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Signature Type -->
+  <xs:complexType name="SignatureType">
+    <xs:sequence>
+      <xs:element name="incarcerated_jailed" type="YesNoType"/>
+      <xs:element name="incarcerated_person_name" type="xs:string"/>
+      <xs:element name="facing_disposition_of_charges" type="YesNoType"/>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="xs:date" name="sign_date"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Appendix A Type -->
+  <xs:complexType name="AppendixAType">
+    <xs:sequence>
+      <xs:element name="incomplete" type="YesNoType"/>
+      <xs:element name="employee_info">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="legal_name" type="LegalNameType"/>
+            <xs:element name="ssn" type="SSNType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="employer_info">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name">
+              <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                      <xs:maxLength value="110"/>
+                  </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="ein">
+              <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                      <xs:maxLength value="9"/>
+                  </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="address" type="AddressType"/>
+            <xs:element name="phone" type="PhoneNumberType"/>
+            <xs:element name="contact_name" type="xs:string"/>
+            <xs:element name="contact_phone" type="PhoneNumberType"/>
+            <xs:element name="contact_best_call_time" type="BestCallTimeType"/>
+            <xs:element name="contact_email" type="EmailType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="employer_coverage">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="eligible_for_coverage" type="YesNoType"/>
+            <xs:element name="eligible_start_date" type="xs:date"/>
+            <xs:element name="eligible_other_people" type="xs:string"/>
+            <xs:element name="plan_meets_standard" type="YesNoType"/>
+            <xs:element name="plan_employee_amount" type="xs:decimal"/>
+            <xs:element name="plan_employee_frequency" type="FrequencyType"/>
+            <xs:element name="plan_family_amount" type="xs:decimal"/>
+            <xs:element name="plan_family_frequency" type="FrequencyType"/>
+            <xs:element name="employer_offered_coverage" type="YesNoType"/>
+            <xs:element name="employer_offered_employee_amount" type="xs:decimal"/>
+            <xs:element name="employer_offered_frequency" type="FrequencyType"/>
+            <xs:element name="employer_offered_change_date" type="xs:date"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Appendix C Type -->
+  <xs:complexType name="AppendixCType">
+    <xs:sequence>
+      <xs:element name="app_start_date" type="xs:date"/>
+      <xs:element name="certified_person">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="legal_name" type="LegalNameType"/>
+            <xs:element name="organization">
+              <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                      <xs:maxLength value="100"/>
+                  </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="id">
+              <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                      <xs:maxLength value="13"/>
+                  </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="npn">
+              <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                      <xs:maxLength value="10"/>
+                  </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="authorized_rep">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="legal_name" type="LegalNameType"/>
+            <xs:element name="address" type="AddressType"/>
+            <xs:element name="phone" type="PhoneNumberType"/>
+            <xs:element name="best_call_time" type="BestCallTimeType"/>
+            <xs:element name="organization">
+              <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                      <xs:maxLength value="100"/>
+                  </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="id">
+              <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                      <xs:maxLength value="13"/>
+                  </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="signature" type="SignatureType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Supporting Documents Reminder Type -->
+  <xs:complexType name="SupportDocsReminderType">
+    <xs:sequence>
+      <xs:element name="supporting_docs" type="DocReminderType" maxOccurs="11" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Doc Reminder Type -->
+  <xs:complexType name="DocReminderType">
+    <xs:sequence>
+      <xs:element name="certified_person">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="110"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Phone Number Simple Type -->
+  <xs:simpleType name="PhoneNumberType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Email Simple Type -->
+  <xs:simpleType name="EmailType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="65"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- SSN Simple Type -->
+  <xs:simpleType name="SSNType">
+    <xs:restriction base="xs:string">
+      <xs:length value="9"/>
+      <xs:pattern value="[0-9]{9}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- Yes/No Simple Type -->
+  <xs:simpleType name="YesNoType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1"/>
+  	  <xs:enumeration value="Y"/>
+  	  <xs:enumeration value="N"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Frequency Simple Type -->
+  <xs:simpleType name="FrequencyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="hourly"/>
+      <xs:enumeration value="weekly"/>
+      <xs:enumeration value="every2weeks"/>
+      <xs:enumeration value="2xmonth"/>
+      <xs:enumeration value="monthly"/>
+      <xs:enumeration value="quarterly"/>
+      <xs:enumeration value="2xyear"/>
+      <xs:enumeration value="yearly"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+</xs:schema>
+
+
+
+

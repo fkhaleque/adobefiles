@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: forms.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: forms.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file CMS Site Custom AF JS 
+ * @author Adobe LC-ACA-DEV@adobe.com
+ * @version 0.1.0
+ */
+
+/**
+ * Parent namespace for Adobe CMS Exemptions
+ *
+ * @namespace
+ * @version 0.1.0
+ * @since 0.1.0
+ * @see http://www.adobe.com
+ */
+	
+var cmsexemptions = cmsexemptions || {};
+
+/**
+ * AEM Exemptions Form Utilities.
+ *
+ * @namespace
+ * @memberOf cmsexemptions
+ * @version 0.1.0
+ * @since 0.1.0
+ */
+
+cmsexemptions.formtheme = function() {
+
+    /**
+     * A stepCompletionHandler function which can execute
+     * a panel completion expression in addition to
+     * the regular guidebridge validation.
+     * 
+     * a new attribute "panelCompletionExpression" must be added to the panel node
+     * in CRX.  the result of this expression must be an array of {som:, errorText:}
+     * (which is what guideBridge.validate generates).  an empty array should
+     * be returned if the expression validates without error.
+     *
+     * @memberOf cmsexemptions.formtheme
+     * @param {String} somExpression of the current panel
+     * @returns {Boolean} if panel validated correctly
+     * @example cmsexemptions.formtheme.stepCompletionHandler(this.panel.navigationContext.currentItem.somExpression)
+     * @since 0.1.0
+     */
+	var stepCompletionHandler = function(somExpression)
+    {
+    	
+
+  		var thisPanel = window.guideBridge.resolveNode(somExpression);
+
+  		// validate, but dont focus on error
+  		var ret = window.guideBridge.validate([],somExpression, false) ;
+  		
+  		// trigger panel specific post-validate handler, if exist
+  		$(thisPanel).trigger("postValidate", [ ret ] );
+  		
+  		return ret;
+		
+    };
+
+    /**
+     * Event handler to be called when adaptive form validates.
+     * will show or hide the topErrors div with a populated UL
+     * of all the form errors, if any.
+     *
+     * @memberOf cmsexemptions.formtheme
+     * @returns {void}
+     * @example validationCompleteTopErrorHandler();
+     * @since 0.1.0
+     */
+	var validationCompleteTopErrorHandler = function(event,data) {
+		
+    	// show or hide top error box if we have errors
+		
+		var te = $('#topErrors');
+		if (data.newText.length == 0 )
+		{
+			te.addClass("hidden");
+			te.attr("aria-hidden",true);
+			te.attr("tabindex",-1);
+		} else {
+			te.removeClass("hidden");
+			te.attr("aria-hidden", false);
+			te.attr("tabindex",0);
+		}
+
+    	// if errors, populate LI with errors
+    	if (data.newText.length>0)
+    	{
+    		$('#topErrorTitle').text("Your information contains " + data.newText.length + " error(s).");
+
+    		var errList = $('#topErrorList');
+    		errList.empty();
+    		
+    		$.each(data.newText, function(i)
+	    	{
+    			// console.log("error in: " + data.newText[i].som);
+    			
+    			$('&lt;a />', {
+    			    text: data.newText[i].errorText,
+    			    href: "",
+    			    tabindex: "0",
+    			    click: function(event) {
+    			    	event.preventDefault();
+    			    	window.guideBridge.setFocus(data.newText[i].som,"firstItem");
+    			    },
+    				keyup: function(event){
+    					if(event.keyCode == 13 || event.keyCode == 32)
+    					{
+    						this.click();
+    					}
+    				}
+    			}).wrap('&lt;li/>').parent().appendTo(errList);
+	    	    
+	    	});
+    		
+    		if (data.newText.length==1)
+    		{
+    			// only one error, goto that field
+		    	window.guideBridge.setFocus(data.newText[0].som,"firstItem");
+    		} else {
+    			// focus the error list
+    			$('html, body').animate({scrollTop : 0},800);
+    			te.focus();
+    		}
+
+    	}
+	},
+	
+
+	  /**
+     *  Displays Alert box with guide XML in it
+     *  @param {GuideBridge} guide bridge object
+     *  @return {void}
+     *  @memberOf cmsexemptions.formtheme
+     *  @since 0.1.0
+     */
+    alertGuideXML = function(gb) {
+        
+    	gb.getDataXML(
+		{
+			success: function(guideResultObject) { alert(guideResultObject.data); },
+			error:function(guideResultObject) { alert("Couldn't retrieve data."); },
+			context: this,
+			async: true
+		});
+
+     };
+
+	  /**
+      *  Fired when af field values change; if
+      *  named field changes, fire appropriate field
+      *  handler function.
+      *  
+      *  @param {evt} Event object
+      *  @param {fld} Field affected by event
+      *  @return {void}
+      *  @memberOf cmsexemptions.formtheme
+      *  @since 0.1.0
+      */
+     elementValueChangedHandler = function(evt,fld)
+     {
+		
+		// console.log(fld.target.somExpression + " -> " + fld.target.value);
+		
+    	if (fld.target.className == "guideRadioButton")
+		{
+
+			var opts = $(guideBridge._getGuideDomElement(fld.target.somExpression));
+			
+			// turn all options off
+			opts.find(".guideRadioButtonItem").toggleClass("selected", false);
+			
+			// find selected radio, turn on highlight
+			opts.find("input:checked").closest(".guideRadioButtonItem").toggleClass("selected",true);
+
+			
+		} else if (fld.target.className == "guideCheckBox") {
+
+			// find checkbox and toggle selected attribute
+			$(guideBridge._getGuideDomElement(fld.target.somExpression)).find(".guideCheckBoxItem").toggleClass("selected", (fld.newText!=null));
+
+			
+		}
+			
+     };
+		
+	  /**
+      *  Handles the addition and deletion of person2s.
+      *  
+      *  Requires that the Person2 Panel is located at
+      *  guide[0].guide1[0].guideRootPanel[0].Person2[0]
+      *  
+      *  @param {int} p2Count how many person2s are wanted?
+      *  @return {void}
+      *  @memberOf cmsexemptions.formtheme
+      *  @since 0.1.0
+      */
+     updateNumberOfPerson2s = function(p2Count) {
+    	
+    	// console.log("Updating number of person 2");
+    	// Get the household determinations
+    	var p2Panel = guideBridge.resolveNode("guide[0].guide1[0].guideRootPanel[0].Person2[0]");
+
+    	// sanity check
+    	if (p2Panel==null || p2Count==null) {
+    		return; 
+    	}
+
+    	var currentP2Count = p2Panel.instanceManager.instanceCount;
+
+    	if (p2Count&lt;currentP2Count){
+    		// don't delete only instance
+    		for (var i=currentP2Count; i>p2Count &amp;&amp; i>1;i--)
+    		{
+    			p2Panel.instanceManager.removeInstance(p2Panel.instanceManager.instanceCount-1);
+    			// console.log("delete panel"+i);
+    		}
+    	} else if (p2Count>currentP2Count) {
+    		// add additional panels
+    		for (var i=currentP2Count; i&lt;p2Count;i++)
+    		{
+    			var newPanel = p2Panel.instanceManager.addInstance();
+    			
+    			if (newPanel!=null)
+    			{
+	    	    	guideBridge.setProperty(
+	    	    		[
+	    	    		newPanel.FileJointly.somExpression,
+	    	    		newPanel.PersonalInformation.OnP1Return.somExpression,
+	    	    		newPanel.PersonalInformation.IsSpouse.somExpression
+	    	    		]
+	    	    		,"value", ["N","Y","N"]);
+    			}
+
+    		}
+    	}
+
+    	// if only one p2, hide the panel instead of deleting it (in case we need it later)
+    	p2Panel.visible=(p2Count>0);
+    	
+    	if (!p2Panel.visible) {
+    		// prevent an unused panel0 from putting prefill
+    		p2Panel.resetData();
+    		p2Panel.validationsDisabled=true;
+    		
+    	} else {
+    		
+    		p2Panel.validationsDisabled=false;
+    		
+	    	// if filing jointly, set first p2 to spouse
+	    	var isJointly = guideBridge.resolveNode("guide[0].guide1[0].guideRootPanel[0].HouseholdDetermination[0].IsFilingJointly[0]");
+	    	
+	    	var values = (isJointly.value=="Y" ? ["Y","N","Y","SPOUSE","Y"] : ["N","Y","N",null,null]); 
+	    	
+	    	guideBridge.setProperty(
+	    		[
+	    		p2Panel.FileJointly.somExpression,
+	    		p2Panel.PersonalInformation.OnP1Return.somExpression,
+	    		p2Panel.PersonalInformation.IsSpouse.somExpression,
+	    		p2Panel.PersonalInformation.RelationshipToFiler.somExpression,
+	    		p2Panel.TaxQuestions.PlanToFile.somExpression
+	    		]
+	    		,"value", values);
+    	}
+    	
+     };
+     
+     
+     /**
+      *  Gets the full names of all dependents
+      *  concatenated together, separated by a comma
+      *  
+      *  Requires that the Person2 Panel is located at
+      *  guide[0].guide1[0].guideRootPanel[0].Person2[0]
+      *  
+      *  @return {String} Dependent Names
+      *  @memberOf cmsexemptions.formtheme
+      *  @since 0.1.0
+      */
+     
+     var getDependentNames = function()
+     {
+    	 
+     	var p2panel = guideBridge.resolveNode("guide[0].guide1[0].guideRootPanel[0].Person2[0]");
+
+    	var deps = 
+    	 _.reduce (p2panel.instanceManager.instances,  
+		 function (memo, panelObj) {
+	 		
+	 		if (panelObj.PersonalInformation.OnP1Return.value == "Y" &amp;&amp; panelObj.PersonalInformation.CommonName.value != "")
+	 		{
+	 			if (memo!="")
+	 				memo += ", ";
+	 			
+	 			memo += panelObj.PersonalInformation.CommonName.value;
+	 		}
+	 		return memo;
+    	 } , "" );
+    	
+    	return deps;
+    	 
+     }
+
+	 var screenerNavigator = function(button, direction)
+	 {
+		 
+		 if (direction=="back")
+		 {
+			 window.guideBridge.setFocus(null, 'prevItemDeep');
+			 window.guideBridge.validate([],window.guideBridge.resolveNode(window.guideBridge.getFocus()).panel.navigationContext.currentItem.somExpression);
+
+		 } else if (direction=="next") {
+			 			 
+			 if (window.guideBridge.validate([],button.panel.navigationContext.currentItem.somExpression))
+			 {
+			 
+				 var exempt = window.guideBridge.resolveNode("guide[0].guide1[0].guideRootPanel[0].ChooseExemption[0].ExemptionSelectionPanel[0].radioExemptions1[0]").value;
+				 var state = window.guideBridge.resolveNode("guide[0].guide1[0].guideRootPanel[0].StateSelection[0].State[0]").value;
+				 
+				 if (exempt==null || (exempt == "AFFORD" &amp;&amp; state==null)) 
+				 {
+					 window.guideBridge.setFocus(null, 'nextItemDeep');	 
+				 } else {
+					 redirectToExemption(exempt,state);
+					 return;
+				 }
+			 }
+		 }
+		 
+		 // toolbar visible?
+		 // does current panel have a previous nav item?  show the toolbar
+		 window.guideBridge.resolveNode(window.guideBridge.getNavigablePanel([])).toolbar.visible
+		 	= window.guideBridge.resolveNode(window.guideBridge.getFocus()).panel.parent.navigationContext.hasPrevItem;
+
+	 }
+	 
+     /**
+      *  Redirects the browser to an exemption form
+      *    
+      *  @param {String} formKey Exemption form key: HS/FFM/SBM/TRIBAL/SECT/HSM/AFFORD
+      *  @param {String} state US state abbreviation (for when formKey==AFFORD)
+      *  @return {void}
+      *  @memberOf cmsexemptions.formtheme
+      *  @since 0.1.0
+      */     
+     var redirectToExemption = function (formKey,state) {
+ 		
+ 		var redirectUrl = "";
+
+ 		if (formKey=="AFFORD")
+ 		{
+ 	 		var sbmArray = ["CA","CO","DC","HI","ID","KY","MD","MA","MN","NY","RI","VT","WA"];
+ 	 		
+ 	 		if (state!=null &amp;&amp; sbmArray.indexOf(state)>=0)
+ 	 		{
+ 	 			formKey="SBM";
+ 	 		} else {
+ 	 			formKey="FFM";
+ 	 		}
+ 		}
+ 		
+		preventAccidentalNavigation(false);
+ 		switch (formKey) 
+ 		{
+ 			case "HS":
+ 				location.href="https://www.healthcare.gov/exemption-online-form/Hardship.html";
+ 				break;
+ 			case "FFM":
+ 				location.href="https://www.healthcare.gov/exemption-online-form/Affordability-FFM.html";
+ 				break;
+ 			case "SBM":
+ 				location.href="https://www.healthcare.gov/exemption-online-form/Affordability-SBM.html";
+ 				break;
+ 			case "TRIBAL":
+ 				location.href="https://www.healthcare.gov/exemptions-tool/#/results/2015/details/tribal";
+ 				break;
+ 			case "SECT":
+ 				location.href="https://www.healthcare.gov/exemptions-tool/#/results/2015/details/religion";
+ 				break;
+ 			case "HSM":
+ 				location.href="https://www.healthcare.gov/exemptions-tool/#/results/2015/details/healthcare-sharing-ministry";
+ 				break;
+ 			case "INCARC":
+ 				location.href="https://www.healthcare.gov/exemptions-tool/#/results/2015/details/incarceration";
+ 				break;
+ 			default:
+ 				alert ("Redirect to unknown exemption application: " + formKey);
+ 		}
+ 	};
+ 	
+ 	
+ 	 /**
+     *  Prevent accidental navigation away from form-in-process
+     *    
+     *  @return {void}
+     *  @memberOf cmsexemptions.formtheme
+     *  @since 0.1.0
+     */     
+    var preventAccidentalNavigation = function (prevent) {
+    	
+    	if (prevent==false)
+    	{
+			window.onbeforeunload = false;
+    	} else {
+    		
+			window.onbeforeunload = function(evt) {
+				return 'Are you sure you wish to leave this application?';
+		    }
+
+			window.guideBridge.on("submitStart", function() 
+				{
+	    			window.onbeforeunload = false;
+	        		window.guideBridge.off("submitStart");
+				}
+			);
+    	}
+
+    }
+
+    
+	 /**
+	 *  Reset multi-instance panel
+	 *
+	 *  Deletes any created instances above minOccur
+	 *  Runs resetData() on all remaining instances
+	 *  
+	 *  @param {Panel} Panel to reset
+	 *  @return {void}
+	 *  @memberOf cmsexemptions.formtheme
+	 *  @since 0.1.0
+	 */     
+    var resetMultiInstancePanel = function(panel) {
+    	
+    	while (panel.instanceManager.instanceCount > panel.instanceManager.minOccur)
+    		panel.instanceManager.removeInstance(0);
+
+    	for (var i=0; i&lt;panel.instanceManager.instanceCount; i++)
+    		panel.instanceManager.instances[i].resetData();
+
+    }
+
+    
+	var initHouseholdPanel = function (panel) {
+		$(panel).on("postValidate", handleHouseholdPostValidate);
+	};
+	
+	var handleHouseholdPostValidate = function(evt, isValid) {
+		
+		var panelDom = $(guideBridge._getGuideDomElement(this.somExpression));
+
+		if (!isValid &amp;&amp; this.PlanToFile.value!="Y")
+		{
+			cmsexemptions.controls.modalShow("#notfiling_modal");
+		} else {
+			
+			// have valid household configuration
+			// update number of P2 panels
+			
+			var p2s =
+				(this.IsFilingJointly.value==="Y" ? 1:0) +
+				 parseInt(this.NumberOfDependents.value,10);
+			
+			updateNumberOfPerson2s(p2s);
+			// console.log("Updating number of person2 to " + p2s);
+			
+		}
+	};
+	
+    
+	return {
+		alertGuideXML: alertGuideXML,
+		elementValueChangedHandler: elementValueChangedHandler,
+		getDependentNames : getDependentNames,
+		handleHouseholdPostValidate : handleHouseholdPostValidate,
+		initHouseholdPanel : initHouseholdPanel,
+		preventAccidentalNavigation : preventAccidentalNavigation,
+		redirectToExemption: redirectToExemption,
+		resetMultiInstancePanel : resetMultiInstancePanel,
+		screenerNavigator : screenerNavigator,
+		stepCompletionHandler: stepCompletionHandler,
+		updateNumberOfPerson2s: updateNumberOfPerson2s,
+		validationCompleteTopErrorHandler : validationCompleteTopErrorHandler
+		
+	}
+
+}();
+
+
+// Do this once guide is initialized
+window.addEventListener("bridgeInitializeStart", function(evnt) {
+	 
+    // get hold of the guideBridge object
+    var gb = evnt.detail.guideBridge;
+
+    //wait for the completion of AF
+    gb.connect(function (){
+    	
+        // activate topError handler -- big red box if form has errors.
+        gb.on("validationComplete", cmsexemptions.formtheme.validationCompleteTopErrorHandler );
+        
+        // activate behavior when items change on form
+        gb.on("elementValueChanged",cmsexemptions.formtheme.elementValueChangedHandler);
+        
+        // if privacy modal exists, pop it up
+        if ($("#pii").length) {
+        	cmsexemptions.controls.modalShow('#pii','#main');
+        }
+                
+    });
+});</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="cmsexemptions.html">cmsexemptions</a></li><li><a href="cmsexemptions.affordability.html">affordability</a></li><li><a href="cmsexemptions.common.html">common</a></li><li><a href="cmsexemptions.formtheme.html">formtheme</a></li><li><a href="cmsexemptions.hardship.html">hardship</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.3</a> on Fri Feb 26 2016 09:50:04 GMT-0500 (EST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!--/*
+    Copyright 2015 Adobe Systems Incorporated
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/-->
+<div class="container-whole">
+    <div id="header" role="banner">
+        <div class="container">
+            <div class="navbar hidden-xs" id="desktop-nav">
+                <div class="pull-left">
+                    <a href="https://healthcare.gov/"><img class="logo" src="/content/dam/cmsexemptions/HealthCare-gov.png" alt="HealthCare.gov"></a>
+                </div>
+                <div class="pull-left">
+
+                    <ul class="header-actions" data-sly-use.topnav="topnav.js" data-sly-list="${topnav.items}">
+                    
+                        <li class="learn-link ${item.selected && 'active'}">
+                            <a class="header-link" href="${item.page.path}.html">${item.page.title}</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="pull-right">
+                    <ul class="header-actions user-action-list">
+                        <li class="liteac-login topnav">
+                            <a href="#" class="header-link">Log in</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/*
+    
+    <div class="utility-section hidden-xs">
+        <div class="container" aria-label="main" role="navigation">
+            <div class="nav pull-left">
+                <a class="nav-btn" href="#">Overview</a>
+            </div>
+            <div class="main-nav-search pull-right">
+                <form class="gsearch" action="/search" method="get" name="gsearch" role="search">
+                    <div class="input-group">
+                        <label class="hidden" for="input-main-nav-search"> Site Search </label>
+                        <input id="input-main-nav-search" class="form-control" type="text" name="q" placeholder="Search" title="Enter text to search" autocomplete="off">
+                        <span class="input-group-btn">
+                        <button class="btn btn-default submit visible-lg" type="submit"> Search </button>
+                        <button class="btn btn-default submit hidden-lg" type="submit">
+                        <span class="glyphicons search" aria-label="search button"></span>
+                        </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+   */-->
+</div>

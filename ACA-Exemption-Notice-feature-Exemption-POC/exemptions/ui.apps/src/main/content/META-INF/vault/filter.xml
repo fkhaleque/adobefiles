@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/cmsexemptions">
+        <exclude pattern="/apps/cmsexemptions/install" />
+    </filter>
+    <filter root="/apps/sling" />
+    <filter root="/apps/fd/af/components"/>
+    <filter root="/etc/designs/cmsexemptions"/>
+    <filter root="/etc/clientlibs/fd/xfaforms/xfalib/widgets/javascript/"/>
+</workspaceFilter>

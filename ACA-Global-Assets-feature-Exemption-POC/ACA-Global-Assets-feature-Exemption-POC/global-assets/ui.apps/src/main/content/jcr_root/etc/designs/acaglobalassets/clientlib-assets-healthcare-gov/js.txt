@@ -1,0 +1,7 @@
+#base=.
+jquery/jquery.js
+datatables/1.10.7/js/jquery.dataTables.js
+datatables-tableTools/dataTables.tableTools.js
+jqueryui/jquery-ui.js
+globalassets/scripts/assets.core.js
+underscore/underscore.js

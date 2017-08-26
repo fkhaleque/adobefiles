@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items
+        jcr:primaryType="nt:unstructured"
+        xtype="tabpanel">
+        <items
+            jcr:primaryType="nt:unstructured"
+            border="false"
+            height=""
+            title="Properties"
+            width=""
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <buttonName
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    disabled="false"
+                    fieldDescription="Button ID"
+                    fieldLabel="Button Name"
+                    grow="false"
+                    hideLabel="false"
+                    minLength="3"
+                    minLengthText="Please enter at least 3 characters."
+                    name="./buttonName"
+                    readOnly="false"
+                    selectOnFocus="false"
+                    validateOnBlur="true"
+                    xtype="textfield"/>
+                <buttonLabel
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="true"
+                    blankText="Simple Button"
+                    defaultValue="Simple Button"
+                    disabled="false"
+                    emptyText="Simple Button"
+                    fieldDescription="Button Text"
+                    fieldLabel="Button Label"
+                    grow="false"
+                    hideLabel="false"
+                    name="./buttonLabel"
+                    readOnly="false"
+                    selectOnFocus="false"
+                    validateOnBlur="true"
+                    xtype="textfield"/>
+                <buttonCss
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="true"
+                    disabled="false"
+                    fieldDescription="CSS Classes"
+                    fieldLabel="Button Style"
+                    grow="false"
+                    hideLabel="false"
+                    name="./buttonCss"
+                    readOnly="false"
+                    selectOnFocus="false"
+                    validateOnBlur="true"
+                    xtype="textfield"/>
+                <buttonScript
+                    jcr:primaryType="nt:unstructured"
+                    allowBlank="true"
+                    emptyText="alert(&quot;Button Action&quot;);"
+                    fieldDescription="Script"
+                    fieldLabel="Button Script"
+                    name="./buttonScript"
+                    validateOnBlur="true"
+                    xtype="textarea"/>
+            </items>
+        </items>
+    </items>
+</jcr:root>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="dam:Asset">
+    <jcr:content
+        cq:lastModified="{Date}2017-03-21T20:28:53.485Z"
+        cq:lastModifiedBy="admin"
+        dam:relativePath="formsanddocuments/cms-exemptions/Hardship"
+        jcr:lastModified="{Date}2017-05-18T08:53:32.708-05:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        sling:resourceType="fd/fm/af/render"
+        guide="1">
+        <metadata
+            jcr:primaryType="nt:unstructured"
+            allowedRenderFormat="HTML"
+            author="admin"
+            availableInMobileApp="{Boolean}false"
+            dorType="none"
+            formmodel="xmlschema"
+            title="Hardship"
+            xsdRef="/content/dam/formsanddocuments/cms-exemptions/Schema/exemptions_schema.xsd"
+            xsdRootElement="data"/>
+    </jcr:content>
+</jcr:root>

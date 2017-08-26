@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/acaglobalassets">
+        <exclude pattern="/apps/acaglobalassets/install" />
+    </filter>
+    <filter root="/apps/sling" />
+    <filter root="/etc/designs/acaglobalassets" />
+    
+    <!-- Workflow Model Permissions (merge ACL, DO NOT overwrite models) -->
+    <filter root="/etc/workflow" mode="merge"/>
+        
+    <!-- ACA System User (rep:SysUser) -->
+    <filter root="/home/users/system/acaglobalassets" />
+</workspaceFilter>

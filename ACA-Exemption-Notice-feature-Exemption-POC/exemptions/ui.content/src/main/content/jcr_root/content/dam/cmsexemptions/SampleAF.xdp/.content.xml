@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:Z="urn:schemas-microsoft-com:"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:lockable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="2b046a4f-1e86-45b2-9457-a6788ecfdde3">
+    <jcr:content
+        cq:name="SampleAF.xdp"
+        cq:parentPath="/content/dam/cmsexemptions"
+        dam:assetState="processing"
+        dam:relativePath="cmsexemptions/SampleAF.xdp"
+        jcr:lastModified="{Date}2017-05-18T08:53:38.420-05:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        Z:Win32CreationTime="Wed, 14 Oct 2015 21:15:58 GMT"
+        Z:Win32FileAttributes="00000020"
+        Z:Win32LastAccessTime="Wed, 14 Oct 2015 21:23:56 GMT"
+        Z:Win32LastModifiedTime="Wed, 14 Oct 2015 21:23:45 GMT">
+        <metadata
+            dam:extracted="{Date}2017-05-18T08:53:38.210-05:00"
+            dam:sha1="fc986bd30871bf33cfbb84b63747ca2f49fbdb1c"
+            dam:size="{Long}32098"
+            dc:format="application/vnd.adobe.xdp+xml"
+            dc:modified="{Date}2015-11-11T17:45:34.388-05:00"
+            jcr:lastModified="{Date}2017-05-18T08:53:34.502-05:00"
+            jcr:lastModifiedBy="admin"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

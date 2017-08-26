@@ -1,0 +1,28 @@
+<!--/*
+    Copyright 2015 Adobe Systems Incorporated
+  
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+  
+        http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/-->
+
+<!-- Button Starts -->
+<!--/* 
+The @context attribute is a way to include value validation of the elements or properties. An unsafe context is used to override validation when it is not implemented for a particular
+context, but means that unescaped elements could break the page. 
+*/-->
+<button data-sly-use.props="propsPicker.js" data-sly-attribute.id="${properties.buttonName}" data-sly-attribute.type="button" data-sly-attribute.class="${properties.buttonCss}" data-sly-text="${props.label}">Simple Button</button>
+<script type="text/javascript">
+    document.getElementById("${properties.buttonName @ context='scriptString'}").onclick = function () {
+        ${properties.buttonScript @ context='unsafe'} 
+    };
+</script> 
+<!-- Button End -->

@@ -1,0 +1,9 @@
+global-assets/it.tests/.settings/
+*.classpath
+*.prefs
+*.project
+global-assets/ui.apps/.settings/
+global-assets/ui.content/.settings/
+aca-doc/node_modules/
+global-assets/ui.content/.externalToolBuilders
+global-assets/ui.apps/.externalToolBuilders

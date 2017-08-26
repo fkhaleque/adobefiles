@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batchNoticeData xmlns="http://www.cms.hhs.gov/notices"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.cms.hhs.gov/notices BatchNotice_Validation.xsd">
+	<NoticeDate></NoticeDate>
+	<PolicyId></PolicyId>
+	<applicationSignatureDate></applicationSignatureDate>
+	<SystemDate></SystemDate>
+	<NoticeNumber></NoticeNumber>
+	<AccountId></AccountId>
+	<InsuranceMarketType></InsuranceMarketType>
+	<NoticeTypeCode></NoticeTypeCode>
+	<UniqueNoticeID></UniqueNoticeID>
+	<CoverageYear></CoverageYear>
+	<locale></locale>
+	<ApplicationId></ApplicationId>
+	<Barcode></Barcode>
+	<PostalCode></PostalCode>
+	<FileName></FileName>
+	<FileType></FileType>
+	<FormName></FormName>
+	<VersionNumber></VersionNumber>
+	<SubmissionDate></SubmissionDate>
+	<TrackingNumber></TrackingNumber>
+	<NoticeData>
+		<EmployerName></EmployerName>
+		<JobIncomeEmployerName></JobIncomeEmployerName>
+		<EmployeNameMatched></EmployeNameMatched>
+		<StreetName1></StreetName1>
+		<CityName></CityName>
+		<State></State>
+		<ZipCode></ZipCode>
+		<EmployerTelphoneNumber></EmployerTelphoneNumber>
+		<EmployereIN></EmployereIN>
+		<ContactPersonFirstName></ContactPersonFirstName>
+		<ContactPersonLastName></ContactPersonLastName>
+		<ContactPersonTelephoneNumber></ContactPersonTelephoneNumber>
+		<PersonFirstName></PersonFirstName>
+		<PersonLastName></PersonLastName>
+		<PersonSuffix></PersonSuffix>
+		<SSN></SSN>
+		<BirthDate></BirthDate>
+		<CoveredInsuredMember></CoveredInsuredMember>
+	</NoticeData>
+</batchNoticeData>

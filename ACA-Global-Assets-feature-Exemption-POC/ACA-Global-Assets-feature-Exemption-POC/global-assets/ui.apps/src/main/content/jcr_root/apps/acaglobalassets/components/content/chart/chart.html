@@ -1,0 +1,10 @@
+<div aria-hidden="true" data-sly-use.donut="${'gov.hhs.cms.aca.batch_notice_processing.core.models.dashboard.ChartDataExtractionInfo' @ chartType= properties.title}">
+
+    <div data-sly-use.CV="templates/render.html"></div>
+    <div data-sly-call="${CV.donut @ props=properties, cargo=donut}"></div>
+
+    <div style="text-align: center; color:red" id="chart_footer" aria-hidden="true">
+   		<i class="coral-Icon coral-Icon--alert coral-Icon--sizeM"></i>
+   			<span id="chart_error_count">${donut.chartErrorCount}</span> Errors
+    </div>
+</div>

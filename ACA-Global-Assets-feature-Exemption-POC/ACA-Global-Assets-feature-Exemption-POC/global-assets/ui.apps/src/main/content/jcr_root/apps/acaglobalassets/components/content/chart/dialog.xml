@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Properties"
+    xtype="panel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <title
+            jcr:primaryType="cq:Widget"
+            defaultValue="Chart Title"
+            fieldLabel="Title"
+            name="./title"
+            xtype="textfield"/>
+        <name
+            jcr:primaryType="cq:Widget"
+            defaultValue="chartTitle"
+            fieldLabel="Chart Name (no spaces)"
+            name="./name"
+            xtype="textfield"/>
+        <data
+            jcr:primaryType="cq:Widget"
+            fieldLabel="Data"
+            defaultValue="null"
+            name="./data"
+            xtype="textfield"/>
+        <legend
+            jcr:primaryType="cq:Widget"
+            defaultValue="false"
+            fieldLabel="Show Chart Legend"
+            name="./legend"
+            xtype="textfield"/>
+        <interactive
+            jcr:primaryType="cq:Widget"
+            defaultValue="false"
+            fieldLabel="Allow Interactivity"
+            name="./interactive"
+            xtype="textfield"/>
+    </items>
+</jcr:root>

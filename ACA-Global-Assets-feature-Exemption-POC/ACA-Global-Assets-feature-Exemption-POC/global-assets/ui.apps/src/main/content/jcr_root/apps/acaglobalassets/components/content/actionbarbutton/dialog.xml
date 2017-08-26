@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Properties"
+    xtype="panel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <title
+            jcr:primaryType="cq:Widget"
+            fieldLabel="Button Title"
+            name="./title"
+            xtype="textfield"
+            defaultValue="Title"/>
+        <subtitle
+            jcr:primaryType="cq:Widget"
+            fieldLabel="Button Subtitle"
+            name="./subtitle"
+            xtype="textfield"
+            defaultValue="Subtitle"/>
+        <icon
+            jcr:primaryType="cq:Widget"
+            fieldLabel="Button Icon"
+            name="./icon"
+            xtype="textfield"
+            defaultValue="cloud-download"/>
+        <panel
+            jcr:primaryType="cq:Widget"
+            fieldLabel="Target Panel"
+            name="./panel"
+            xtype="textfield"/>
+    </items>
+</jcr:root>

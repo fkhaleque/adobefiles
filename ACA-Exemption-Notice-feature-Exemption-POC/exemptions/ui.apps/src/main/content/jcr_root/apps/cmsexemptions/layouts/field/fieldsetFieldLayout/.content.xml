@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:description="Fieldset Field Layout"
+    jcr:primaryType="sling:Folder"
+    jcr:title="Fieldset Field Layout"
+    guideComponentType="fd/af/layouts/field"
+    guideLayoutNode="{Boolean}true"
+    qtip="Fieldset Field Layout"/>

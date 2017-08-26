@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items
+        jcr:primaryType="nt:unstructured"
+        xtype="tabpanel">
+        <items
+            jcr:primaryType="nt:unstructured"
+            border="false"
+            height=""
+            title="Properties"
+            width=""
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <modalTitle
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    disabled="false"
+                    fieldDescription="Title of the modal window"
+                    fieldLabel="Modal Title"
+                    grow="false"
+                    hideLabel="false"
+                    minLength="3"
+                    minLengthText="Please enter at least 3 characters."
+                    name="./title"
+                    readOnly="false"
+                    selectOnFocus="false"
+                    validateOnBlur="true"
+                    xtype="textfield"/>
+                <idModal
+                    jcr:primaryType="cq:Widget"
+                    allowBlank="false"
+                    disabled="false"
+                    fieldDescription="Modal ID i.e. $(&quot;#myModal&quot;).modal()"
+                    fieldLabel="Modal ID"
+                    grow="false"
+                    hideLabel="false"
+                    minLength="3"
+                    minLengthText="Please enter at least 3 characters."
+                    name="./idModal"
+                    readOnly="false"
+                    selectOnFocus="false"
+                    validateOnBlur="true"
+                    xtype="textfield"/>
+                <showClose
+                    jcr:primaryType="nt:unstructured"
+                    fieldLabel="Show Close Button"
+                    name="./showClose"
+                    validateOnBlur="true"
+                    xtype="selection">
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <true
+                            jcr:primaryType="nt:unstructured"
+                            qtip="On"
+                            text="On"
+                            value="true"/>
+                        <false
+                            jcr:primaryType="nt:unstructured"
+                            qtip="Off"
+                            text="Off"
+                            value="false"/>
+                    </options>
+                </showClose>
+                <modalSize
+                    jcr:primaryType="nt:unstructured"
+                    fieldLabel="Modal Size"
+                    name="./modalSize"
+                    validateOnBlur="true"
+                    xtype="selection">
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <small
+                            jcr:primaryType="nt:unstructured"
+                            qtip="Small"
+                            text="Small"
+                            value="sm"/>
+                        <medium
+                            jcr:primaryType="nt:unstructured"
+                            qtip="Medium"
+                            text="Medium"
+                            value="md"/>
+                        <large
+                            jcr:primaryType="nt:unstructured"
+                            qtip="Large"
+                            text="Large"
+                            value="lg"/>
+                    </options>
+                </modalSize>
+            </items>
+        </items>
+    </items>
+</jcr:root>

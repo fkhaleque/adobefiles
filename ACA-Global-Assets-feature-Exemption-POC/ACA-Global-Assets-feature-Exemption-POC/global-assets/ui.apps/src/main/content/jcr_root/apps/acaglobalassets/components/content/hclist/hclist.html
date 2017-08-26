@@ -1,0 +1,27 @@
+<div id="hclist">
+	<h2>Confirm Files for Upload</h2>
+    <div id="hclist-uploadingWait" style="display:none" class="alert alert-info">Uploading Batch Files. Please wait.</div>
+    <div id="hclist-uploadingFail" style="display:none" class="alert alert-danger">Failed to handle file upload.</div>
+    <table class="coral-Table">
+	  <thead>
+	    <tr class="coral-Table-row">
+	      <th class="coral-Table-headerCell uploadFilename">File Name</th>
+	      <th class="coral-Table-headerCell uploadSize">Size</th>
+	      <th class="coral-Table-headerCell uploadNotice">Notice Type</th>
+	      <th class="coral-Table-headerCell uploadStatus"></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+  		<tr class="coral-Table-row">
+  		</tr>
+  		</tbody>
+  		</table>
+	
+	<button id="hclist-upload-btn" type="button" class="btn btn-blue btn-sm" onclick="$('#upload-button').click()">Upload files</button>
+</div>
+<style>
+	.uploadFilename { width: 40%; }
+	.uploadSize { width: 15%; }
+	.uploadStatus { width: 15%; }
+	.uploadNotice { width: 30%; }
+</style>

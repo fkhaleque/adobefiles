@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="sling:OrderedFolder"
+    lcFolder="{Long}0">
+    <jcr:content
+        cq:lastModified="{Date}2015-10-05T16:26:51.436-04:00"
+        cq:lastModifiedBy="admin"
+        jcr:primaryType="nt:unstructured">
+        <folderThumbnail/>
+    </jcr:content>
+    <Card-Fragments/>
+    <Schema/>
+    <XDP/>
+    <Affordability-SBM/>
+    <Affordability-FFM/>
+    <FilteringQuestions/>
+    <Sandbox/>
+    <Hardship/>
+    <rep:policy/>
+</jcr:root>

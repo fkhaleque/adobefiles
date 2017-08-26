@@ -1,0 +1,68 @@
+
+.info-modal .zip-body {
+  margin-bottom: 15px;
+}
+.info-modal .btn-secondary-dark {
+  background-color: #eeeeee !important;
+}
+.info-modal .btn-secondary-dark:hover {
+  color: #333 !important;
+}
+.info-modal .modal-close-btn,
+.plan-card-modal .modal-close-btn {
+  position: absolute;
+  top: -1px;
+  border: 1px solid red;
+}
+.info-modal .modal-close-btn.married,
+.plan-card-modal .modal-close-btn.married {
+  right: 0px;
+}
+.info-modal .modal-close-btn.income,
+.plan-card-modal .modal-close-btn.income {
+  right: -20px;
+}
+.info-modal .modal-close-btn.in-network,
+.plan-card-modal .modal-close-btn.in-network {
+  right: -20px;
+}
+.info-modal .modal-close-btn.zip-code,
+.plan-card-modal .modal-close-btn.zip-code {
+  right: -20px;
+}
+.info-modal .modal-dialog {
+  position: relative;
+}
+.info-modal .modal-body .modal-list li {
+  margin-bottom: 0px !important;
+}
+.info-modal .modal-body .modal-list ul {
+  margin-bottom: 0px !important;
+}
+.info-modal .modal-body ul.modal-list {
+  list-style-type: bullet;
+  margin-bottom: 5px !important;
+}
+.info-modal ul {
+  margin-top: 5px !important;
+  list-style-type: bullet;
+}
+.modal-title {
+  color: #073D61 !important;
+}
+.info-modal .info-title {
+  padding-right: 60px;
+  padding-bottom: 10px;
+  color: #006692 !important;
+  border-bottom-color: #dddddd;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+@media (min-width: 992px) {
+  .info-modal .info-title {
+    padding-right: 20px;
+  }
+}
+.info-modal .modal-continue {
+  margin-bottom: 0px;
+}

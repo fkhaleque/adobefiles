@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Properties"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+        <items jcr:primaryType="nt:unstructured">
+            <column
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <modalTitle
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                        disabled="false"
+                        fieldDescription="Title of the modal window"
+                        fieldLabel="Modal Title"
+                        name="./title"
+                        renderReadOnly="false"
+                        required="false"/>
+                    <idModal
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                        disabled="false"
+                        fieldDescription="Modal ID i.e. $(&quot;#myModal&quot;).modal()"
+                        fieldLabel="Modal ID"
+                        name="./idModal"
+                        renderReadOnly="false"
+                        required="false"/>
+                    <showClose
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/form/radiogroup"
+                        fieldLabel="Show Close Button"
+                        name="./showClose"
+                        validateOnBlur="true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <true
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/radio"
+                                qtip="On"
+                                text="On"
+                                value="true"/>
+                            <false
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/radio"
+                                qtip="Off"
+                                text="Off"
+                                value="false"/>
+                        </items>
+                    </showClose>
+                    <modalSize
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/form/radiogroup"
+                        fieldLabel="Modal Size"
+                        name="./modalSize"
+                        validateOnBlur="true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <small
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/radio"
+                                qtip="Small"
+                                text="Small"
+                                value="sm"/>
+                            <medium
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/radio"
+                                qtip="Medium"
+                                text="Medium"
+                                value="md"/>
+                            <large
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/radio"
+                                qtip="Large"
+                                text="Large"
+                                value="lg"/>
+                        </items>
+                    </modalSize>
+                </items>
+            </column>
+        </items>
+    </content>
+</jcr:root>

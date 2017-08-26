@@ -1,0 +1,14 @@
+#base=/etc/clientlibs/fd/af/third-party/css
+bootstrap.css
+
+#base=less
+styles.less
+
+#base=/etc/clientlibs/fd/xfaforms/xfalib/css
+datepicker.css
+listboxwidget.css
+scribble.css
+dialog.css
+
+#base=css
+shim.css

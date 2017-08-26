@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/content/cmsexemptions"/>
+    <filter root="/content/dam/cmsexemptions"/>
+    <filter root="/content/forms/af/cms-exemptions"/>
+    <filter root="/content/dam/formsanddocuments/cms-exemptions"/>
+    <filter root="/tmp/fd/af/cms-exemptions-test-data"/>
+</workspaceFilter>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xfa generator="Designer_V6.1.0.20150429.1.918869" APIVersion="3.6.15103.0"?>
+<xdp:xdp xmlns:xdp="http://ns.adobe.com/xdp/" timeStamp="2015-10-12T20:42:37Z" uuid="55962756-7e29-49e9-98af-6e3e601e0a41">
+<template xmlns="http://www.xfa.org/schema/xfa-template/3.3/">
+   <?formServer defaultPDFRenderFormat acrobat10.0static?>
+   <subform name="form1" locale="en_US" layout="tb">
+      <pageSet>
+         <pageArea>
+            <medium short="215.9mm" long="279.4mm" stock="custom"/>
+            <contentArea name="ContentArea1" x="10.678mm" y="11.534mm" w="194.31mm" h="248.896mm"/>
+         </pageArea>
+      </pageSet>
+      <subform>
+         <variables>
+            <script contentType="application/x-javascript" name="marketplace">
+var cmsexemptions=cmsexemptions||{};cmsexemptions.formtheme=function(){var a=function(a){var b=window.guideBridge.resolveNode(a),c=window.guideBridge.validate([],a,!1);return $(b).trigger("postValidate",[c]),c},b=function(a,b){var c=$("#topErrors");if(0==b.newText.length?(c.addClass("hidden"),c.attr("aria-hidden",!0),c.attr("tabindex",-1)):(c.removeClass("hidden"),c.attr("aria-hidden",!1),c.attr("tabindex",0)),b.newText.length&gt;0){$("#topErrorTitle").text("Your information contains "+b.newText.length+" error(s).");var d=$("#topErrorList");d.empty(),$.each(b.newText,function(a){$("&lt;a /&gt;",{text:b.newText[a].errorText,href:"",tabindex:"0",click:function(c){c.preventDefault(),window.guideBridge.setFocus(b.newText[a].som,"firstItem")},keyup:function(a){(13==a.keyCode||32==a.keyCode)&amp;&amp;this.click()}}).wrap("&lt;li/&gt;").parent().appendTo(d)}),1==b.newText.length?window.guideBridge.setFocus(b.newText[0].som,"firstItem"):($("html, body").animate({scrollTop:0},800),c.focus())}},c=function(a){a.getDataXML({success:function(a){alert(a.data)},error:function(a){alert("Couldn't retrieve data.")},context:this,async:!0})};elementValueChangedHandler=function(a,b){if("guideRadioButton"==b.target.className){var c=$(guideBridge._getGuideDomElement(b.target.somExpression));c.find(".guideRadioButtonItem").toggleClass("selected",!1),c.find("input:checked").closest(".guideRadioButtonItem").toggleClass("selected",!0)}else"guideCheckBox"==b.target.className&amp;&amp;$(guideBridge._getGuideDomElement(b.target.somExpression)).find(".guideCheckBoxItem").toggleClass("selected",null!=b.newText)},updateNumberOfPerson2s=function(a){var b=guideBridge.resolveNode("guide[0].guide1[0].guideRootPanel[0].Person2[0]");if(null!=b&amp;&amp;null!=a){var c=b.instanceManager.instanceCount;if(c&gt;a)for(var d=c;d&gt;a&amp;&amp;d&gt;1;d--)b.instanceManager.removeInstance(b.instanceManager.instanceCount-1);else if(a&gt;c)for(var d=c;a&gt;d;d++){var e=b.instanceManager.addInstance();null!=e&amp;&amp;guideBridge.setProperty([e.FileJointly.somExpression,e.PersonalInformation.OnP1Return.somExpression,e.PersonalInformation.IsSpouse.somExpression],"value",["N","Y","N"])}if(b.visible=a&gt;0,b.visible){b.validationsDisabled=!1;var f=guideBridge.resolveNode("guide[0].guide1[0].guideRootPanel[0].HouseholdDetermination[0].IsFilingJointly[0]"),g="Y"==f.value?["Y","N","Y","SPOUSE","Y"]:["N","Y","N",null,null];guideBridge.setProperty([b.FileJointly.somExpression,b.PersonalInformation.OnP1Return.somExpression,b.PersonalInformation.IsSpouse.somExpression,b.PersonalInformation.RelationshipToFiler.somExpression,b.TaxQuestions.PlanToFile.somExpression],"value",g)}else b.resetData(),b.validationsDisabled=!0}};var d=function(){var a=guideBridge.resolveNode("guide[0].guide1[0].guideRootPanel[0].Person2[0]"),b=_.reduce(a.instanceManager.instances,function(a,b){return"Y"==b.PersonalInformation.OnP1Return.value&amp;&amp;""!=b.PersonalInformation.CommonName.value&amp;&amp;(""!=a&amp;&amp;(a+=", "),a+=b.PersonalInformation.CommonName.value),a},"");return b},e=function(a,b){if("back"==b)window.guideBridge.setFocus(null,"prevItemDeep"),window.guideBridge.validate([],window.guideBridge.resolveNode(window.guideBridge.getFocus()).panel.navigationContext.currentItem.somExpression);else if("next"==b&amp;&amp;window.guideBridge.validate([],a.panel.navigationContext.currentItem.somExpression)){var c=window.guideBridge.resolveNode("guide[0].guide1[0].guideRootPanel[0].ChooseExemption[0].ExemptionSelectionPanel[0].radioExemptions1[0]").value,d=window.guideBridge.resolveNode("guide[0].guide1[0].guideRootPanel[0].StateSelection[0].State[0]").value;if(null!=c&amp;&amp;("AFFORD"!=c||null!=d))return void f(c,d);window.guideBridge.setFocus(null,"nextItemDeep")}window.guideBridge.resolveNode(window.guideBridge.getNavigablePanel([])).toolbar.visible=window.guideBridge.resolveNode(window.guideBridge.getFocus()).panel.parent.navigationContext.hasPrevItem},f=function(a,b){if("AFFORD"==a){var c=["CA","CO","DC","HI","ID","KY","MD","MA","MN","NY","RI","VT","WA"];a=null!=b&amp;&amp;c.indexOf(b)&gt;=0?"SBM":"FFM"}switch(g(!1),a){case"HS":location.href="https://www.healthcare.gov/exemption-online-form/Hardship.html";break;case"FFM":location.href="https://www.healthcare.gov/exemption-online-form/Affordability-FFM.html";break;case"SBM":location.href="https://www.healthcare.gov/exemption-online-form/Affordability-SBM.html";break;case"TRIBAL":location.href="https://www.healthcare.gov/exemptions-tool/#/results/2015/details/tribal";break;case"SECT":location.href="https://www.healthcare.gov/exemptions-tool/#/results/2015/details/religion";break;case"HSM":location.href="https://www.healthcare.gov/exemptions-tool/#/results/2015/details/healthcare-sharing-ministry";break;case"INCARC":location.href="https://www.healthcare.gov/exemptions-tool/#/results/2015/details/incarceration";break;default:alert("Redirect to unknown exemption application: "+a)}},g=function(a){0==a?window.onbeforeunload=!1:(window.onbeforeunload=function(a){return"Are you sure you wish to leave this application?"},window.guideBridge.on("submitStart",function(){window.onbeforeunload=!1,window.guideBridge.off("submitStart")}))},h=function(a){for(;a.instanceManager.instanceCount&gt;a.instanceManager.minOccur;)a.instanceManager.removeInstance(0);for(var b=0;b&lt;a.instanceManager.instanceCount;b++)a.instanceManager.instances[b].resetData()},i=function(a){$(a).on("postValidate",j)},j=function(a,b){$(guideBridge._getGuideDomElement(this.somExpression));if(b||"Y"==this.PlanToFile.value){var c=("Y"===this.IsFilingJointly.value?1:0)+parseInt(this.NumberOfDependents.value,10);updateNumberOfPerson2s(c)}else cmsexemptions.controls.modalShow("#notfiling_modal")};return{alertGuideXML:c,elementValueChangedHandler:elementValueChangedHandler,getDependentNames:d,handleHouseholdPostValidate:j,initHouseholdPanel:i,preventAccidentalNavigation:g,redirectToExemption:f,resetMultiInstancePanel:h,screenerNavigator:e,stepCompletionHandler:a,updateNumberOfPerson2s:updateNumberOfPerson2s,validationCompleteTopErrorHandler:b}}(),window.addEventListener("bridgeInitializeStart",function(a){var b=a.detail.guideBridge;b.connect(function(){b.on("validationComplete",cmsexemptions.formtheme.validationCompleteTopErrorHandler),b.on("elementValueChanged",cmsexemptions.formtheme.elementValueChangedHandler),$("#pii").length&amp;&amp;cmsexemptions.controls.modalShow("#pii","#main")})});
+<?templateDesigner isFragment yes?>
+               <?templateDesigner fragmentTitle marketplace?></script>
+         </variables>
+      </subform>
+   </subform>
+   <?templateDesigner FormTargetVersion 33?>
+   <?templateDesigner Rulers horizontal:1, vertical:1, guidelines:1, crosshairs:0?>
+   <?templateDesigner Zoom 209?></template>
+<config xmlns="http://www.xfa.org/schema/xci/3.0/">
+   <agent name="designer">
+      <!--  [0..n]  -->
+      <destination>pdf</destination>
+      <pdf>
+         <!--  [0..n]  -->
+         <fontInfo/>
+      </pdf>
+   </agent>
+   <present>
+      <!--  [0..n]  -->
+      <destination>pdf</destination>
+      <pdf>
+         <!--  [0..n]  -->
+         <fontInfo/>
+         <version>1.7</version>
+         <adobeExtensionLevel>8</adobeExtensionLevel>
+      </pdf>
+      <xdp>
+         <packets>*</packets>
+      </xdp>
+   </present>
+</config>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.4-c005 78.150055, 2013/08/07-22:58:47        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:pdf="http://ns.adobe.com/pdf/1.3/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:lcd="http://ns.adobe.com/livecycle/designer/" xmlns:dc="http://purl.org/dc/elements/1.1/" rdf:about="">
+         <xmp:MetadataDate>2015-10-12T20:42:37Z</xmp:MetadataDate>
+         <xmp:CreatorTool>Designer 6.1</xmp:CreatorTool>
+         <pdf:Producer>Designer 6.1</pdf:Producer>
+         <xmpMM:DocumentID>uuid:55962756-7e29-49e9-98af-6e3e601e0a41</xmpMM:DocumentID>
+         <lcd:fragmentCatalog>
+            <rdf:Seq>
+               <rdf:li rdf:parseType="Resource">
+                  <dc:title>
+                     <rdf:Alt>
+                        <rdf:li xml:lang="x-default">marketplace</rdf:li>
+                     </rdf:Alt>
+                  </dc:title>
+                  <dc:description>
+                     <rdf:Alt>
+                        <rdf:li xml:lang="x-default"/>
+                     </rdf:Alt>
+                  </dc:description>
+                  <dc:identifier>$template.form1.#subform.#variables.marketplace</dc:identifier>
+                  <lcd:fragmentRole>ScriptObject</lcd:fragmentRole>
+               </rdf:li>
+            </rdf:Seq>
+         </lcd:fragmentCatalog>
+      </rdf:Description>
+   </rdf:RDF>
+</x:xmpmeta>
+<localeSet xmlns="http://www.xfa.org/schema/xfa-locale-set/2.7/">
+   <locale name="en_US" desc="English (United States)">
+      <calendarSymbols name="gregorian">
+         <monthNames>
+            <month>January</month>
+            <month>February</month>
+            <month>March</month>
+            <month>April</month>
+            <month>May</month>
+            <month>June</month>
+            <month>July</month>
+            <month>August</month>
+            <month>September</month>
+            <month>October</month>
+            <month>November</month>
+            <month>December</month>
+         </monthNames>
+         <monthNames abbr="1">
+            <month>Jan</month>
+            <month>Feb</month>
+            <month>Mar</month>
+            <month>Apr</month>
+            <month>May</month>
+            <month>Jun</month>
+            <month>Jul</month>
+            <month>Aug</month>
+            <month>Sep</month>
+            <month>Oct</month>
+            <month>Nov</month>
+            <month>Dec</month>
+         </monthNames>
+         <dayNames>
+            <day>Sunday</day>
+            <day>Monday</day>
+            <day>Tuesday</day>
+            <day>Wednesday</day>
+            <day>Thursday</day>
+            <day>Friday</day>
+            <day>Saturday</day>
+         </dayNames>
+         <dayNames abbr="1">
+            <day>Sun</day>
+            <day>Mon</day>
+            <day>Tue</day>
+            <day>Wed</day>
+            <day>Thu</day>
+            <day>Fri</day>
+            <day>Sat</day>
+         </dayNames>
+         <meridiemNames>
+            <meridiem>AM</meridiem>
+            <meridiem>PM</meridiem>
+         </meridiemNames>
+         <eraNames>
+            <era>BC</era>
+            <era>AD</era>
+         </eraNames>
+      </calendarSymbols>
+      <datePatterns>
+         <datePattern name="full">EEEE, MMMM D, YYYY</datePattern>
+         <datePattern name="long">MMMM D, YYYY</datePattern>
+         <datePattern name="med">MMM D, YYYY</datePattern>
+         <datePattern name="short">M/D/YY</datePattern>
+      </datePatterns>
+      <timePatterns>
+         <timePattern name="full">h:MM:SS A Z</timePattern>
+         <timePattern name="long">h:MM:SS A Z</timePattern>
+         <timePattern name="med">h:MM:SS A</timePattern>
+         <timePattern name="short">h:MM A</timePattern>
+      </timePatterns>
+      <dateTimeSymbols>GyMdkHmsSEDFwWahKzZ</dateTimeSymbols>
+      <numberPatterns>
+         <numberPattern name="numeric">z,zz9.zzz</numberPattern>
+         <numberPattern name="currency">$z,zz9.99|($z,zz9.99)</numberPattern>
+         <numberPattern name="percent">z,zz9%</numberPattern>
+      </numberPatterns>
+      <numberSymbols>
+         <numberSymbol name="decimal">.</numberSymbol>
+         <numberSymbol name="grouping">,</numberSymbol>
+         <numberSymbol name="percent">%</numberSymbol>
+         <numberSymbol name="minus">-</numberSymbol>
+         <numberSymbol name="zero">0</numberSymbol>
+      </numberSymbols>
+      <currencySymbols>
+         <currencySymbol name="symbol">$</currencySymbol>
+         <currencySymbol name="isoname">USD</currencySymbol>
+         <currencySymbol name="decimal">.</currencySymbol>
+      </currencySymbols>
+      <typefaces>
+         <typeface name="Myriad Pro"/>
+         <typeface name="Minion Pro"/>
+         <typeface name="Courier Std"/>
+         <typeface name="Adobe Pi Std"/>
+         <typeface name="Adobe Hebrew"/>
+         <typeface name="Adobe Arabic"/>
+         <typeface name="Adobe Thai"/>
+         <typeface name="Kozuka Gothic Pro-VI M"/>
+         <typeface name="Kozuka Mincho Pro-VI R"/>
+         <typeface name="Adobe Ming Std L"/>
+         <typeface name="Adobe Song Std L"/>
+         <typeface name="Adobe Myungjo Std M"/>
+         <typeface name="Adobe Devanagari"/>
+      </typefaces>
+   </locale>
+</localeSet></xdp:xdp>

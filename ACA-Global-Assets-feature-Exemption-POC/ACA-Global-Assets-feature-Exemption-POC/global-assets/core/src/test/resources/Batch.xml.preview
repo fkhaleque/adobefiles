@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<batchNoticeData xmlns="http://www.cms.hhs.gov/notices" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.cms.hhs.gov/notices BatchNotice_Validation.xsd">
+    <NoticeDate>2014-10-22T00:00:00.000-04:00</NoticeDate>
+    <PolicyId/>
+    <applicationSignatureDate/>
+    <SystemDate/>
+    <NoticeNumber>1001</NoticeNumber>
+    <AccountId/>
+    <InsuranceMarketType/>
+    <NoticeTypeCode/>
+    <UniqueNoticeID/>
+    <CoverageYear/>
+    <locale/>
+    <ApplicationId/>
+    <Barcode/>
+    <PostalCode/>
+    <FileName/>
+    <FileType/>
+    <FormName/>
+    <VersionNumber/>
+    <SubmissionDate/>
+    <TrackingNumber/>
+    <NoticeData>
+        <EmployerName>!5TH AVE CHILD CARE LEARNING CENTER</EmployerName>
+        <JobIncomeEmployerName>["!5TH AVE CHILD CARE LEARNING CENTER"]</JobIncomeEmployerName>
+        <EmployeNameMatched>Y</EmployeNameMatched>
+        <StreetName1>1203 9th Ave North</StreetName1>
+        <CityName>Nashville</CityName>
+        <State>TN</State>
+        <ZipCode>37208</ZipCode>
+        <EmployerTelphoneNumber>615-726-0215</EmployerTelphoneNumber>
+        <EmployereIN>20639320</EmployereIN>
+        <ContactPersonFirstName>John </ContactPersonFirstName>
+        <ContactPersonLastName>Cat</ContactPersonLastName>
+        <ContactPersonTelephoneNumber>555-123-1234</ContactPersonTelephoneNumber>
+        <PersonFirstName>John </PersonFirstName>
+        <PersonLastName>Cat</PersonLastName>
+        <PersonSuffix/>
+        <SSN>123456789</SSN>
+        <BirthDate>1951-01-01T00:00:00.000-05:00</BirthDate>
+        <CoveredInsuredMember>Y</CoveredInsuredMember>
+    </NoticeData>
+</batchNoticeData>

@@ -1,0 +1,80 @@
+<template data-sly-template.donut="${ @ props, cargo}">
+	<div id="${props.name}" style="height: 250px;"></div>
+	
+	<script  type="application/javascript">
+		var chartCanvas = "#${props.name @ context='text'}";
+		
+		//connect through dialog
+        //var chartData = JSON.parse("${props.data @ context='scriptString'}");
+		
+        //connect via server-side js via the <cargo> obj
+        var chartData = JSON.parse("${cargo.chartDataString @ context='scriptString'}");
+
+        try {
+
+            var vis = cloudViz.donut({
+                        parent: chartCanvas,
+                        data: chartData,
+                        mappings: {"x": "labels", "y": "values", "series": "series", "seriesLabel": "seriesLabel"},
+                        formats: {"x": "decimal", "y": "decimal"},
+                        colors: ["#8cc350","#5a6eaa","#d755a5","#1ebed7","#f0a01e","#9b8ce6","#3cb5a0","#3287d2","#f0557d","#c3d250","#eb782d","#78b4f5","#5faf69","#aa5fa5","#fa5a50","#f5c841"],
+                        autoResize: true,
+                        maxSlices: 10,
+                        legendVisible: ${props.legend @ context='text'},
+                        interactive: ${props.interactive @ context='text'},
+                        locale: "en_US",
+                        l10n: {}
+                    })
+                    .on('mouseover', function (d, i, j, ev) {
+                        // this = element dispatching the event
+                        // d = data object bound to the element that dispatched
+                        // i = index of the element
+                        // j = index of the element's series
+                        // ev = the raw mouseevent
+                        //console.log('mouseover', this, d, i, j, ev);
+                    })
+                    .render();
+
+
+        } catch (e) {
+            console.error(e.message);
+        }      
+        
+        var chartType = "${props.name @ context='text'}";
+        
+        paintChart(chartType);
+        
+    	function paintChart(cType) {
+   		
+    		var dataArray = { _: new Date().getTime(), chartType : cType};
+    		
+        	var chartData = "";
+        	var chartErrorCount = "";
+        	var chartLanguageCount = "";
+
+        	$.getJSON("/bin/dashboard/getChartData", dataArray , function( data, textStatus, jqXHR) {
+    			$.each(data.chartDataArray, function(index, chartDataItem) {
+    				chartData = JSON.parse(chartDataItem);
+    			});	
+    			
+    			chartErrorCount = data.chartErrorCount;
+    			chartLanguageCount = data.chartLanguageCount;
+    			
+                vis.setOption('preRender', function (chart) {
+                    chart.duration(300);
+                });
+                vis.setOption('data', chartData);
+                vis.render(true);
+				if (chartErrorCount>0) {
+                	$("#chart_error_count").html(chartErrorCount);
+                	$("#chart_footer").show();
+				} else {
+					$("#chart_footer").hide();
+				}
+        	});
+
+            setTimeout(function() {paintChart(chartType);} ,10000);
+    	}       
+    	
+    </script>
+</template>

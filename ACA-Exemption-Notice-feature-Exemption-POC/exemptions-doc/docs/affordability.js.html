@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: affordability.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: affordability.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file CMS Affordability Rules 
+ * @author Adobe LC-ACA-DEV@adobe.com
+ * @version 0.1.0
+ */
+
+/**
+ * Parent namespace for Adobe CMS Exemptions
+ *
+ * @namespace
+ * @version 0.1.0
+ * @since 0.1.0
+ * @see http://www.adobe.com
+ */
+	
+var cmsexemptions = cmsexemptions || {};
+
+/**
+ * AEM Exemptions Affordability Ruleset.
+ *
+ * @namespace
+ * @memberOf cmsexemptions
+ * @version 0.1.0
+ * @since 0.1.0
+ */
+
+cmsexemptions.affordability = function() {
+
+	/**
+     * validates if this module is wired up
+     * use for developing, override as you see fit.
+     *
+     * @memberOf cmsexemptions.affordability
+     * @param {Object} obj an object
+     * @returns {Void} nothing
+     * @since 0.1.0
+     */
+	var test = function(obj)
+	{
+		// do something;
+		alert("test");
+		
+	}
+	
+	var _OTHER_INCOME_TYPES = 
+			[
+			  "1=Unemployment", "2=Retirement account withdrawls (taxable amounts only)", "3=Pensions", 
+		      "4=Farming/Fishing(net)", "5=Rental/Royalties(net)", "6=Alimony Received", "7=Social Security (taxable amount ONLY)", 
+		      "8=Other"
+		    ];
+	
+	
+	var _DEDUCTION_TYPES = ["1=Alimony Paid","2=IRA Deduction","3=Student loan interest paid","4=Other (write type)"];
+	
+	var _STATE_BASED_MARKETPLACE_STATES = ["CA","CO","DC","HI","ID","KY","MD","MA","MN","NY","RI","VT","WA"];
+	
+	var getFilteredOtherIncomeTypes = function (dropdown,panel)
+	{
+		return cmsexemptions.controls.getAllowableDropdownItems(dropdown,panel,_OTHER_INCOME_TYPES);
+	};
+
+	var getFilteredDeductionTypes = function (dropdown,panel)
+	{
+		return cmsexemptions.controls.getAllowableDropdownItems(dropdown,panel,_DEDUCTION_TYPES);
+	};
+	
+	var isSBMState = function (stateAbbr) {
+	return (stateAbbr!=null &amp;&amp; _STATE_BASED_MARKETPLACE_STATES.indexOf(stateAbbr)>=0);
+	};
+
+	var isFFMState = function (stateAbbr) {
+ 		return (stateAbbr!= null &amp;&amp; !(isSBMState(stateAbbr)));
+	};
+
+	/**
+     * updates the number of Appendix A panels.
+     * 
+     * adds/removes as required.  resets the root panel.
+     *
+     * @memberOf cmsexemptions.affordability
+     * @param {Integer} number of panels (typically from a dropdown)
+     * @returns {Void} nothing
+     * @since 0.1.0
+     */
+	
+	var updateAppendixACount = function (newCount) 
+	{
+		
+    	var appendixAPanel = guideBridge.resolveNode("guide[0].guide1[0].guideRootPanel[0].AppendixA[0]");
+
+    	if (appendixAPanel==null || newCount==null) {
+    		return; 
+    	}
+
+    	var currentCount = appendixAPanel.instanceManager.instanceCount;
+
+    	if (newCount&lt;currentCount){
+    		for (var i=currentCount; i>newCount &amp;&amp; i>1;i--)
+    		{
+    			appendixAPanel.instanceManager.removeInstance(appendixAPanel.instanceManager.instanceCount-1);
+    		}
+    	} else if (newCount>currentCount) {
+    		for (var i=currentCount; i&lt;newCount;i++)
+    		{
+    			var newPanel = appendixAPanel.instanceManager.addInstance();
+    			newPanel.validationsDisabled = appendixAPanel.validationsDisabled;
+    			newPanel.Incomplete.value = appendixAPanel.Incomplete.value;
+    		}
+    	}
+
+    	// appendix a validate flag
+    	appendixAPanel.visible=(newCount>0);
+    	if (!appendixAPanel.visible)
+    	{
+    		// if we've gone and hidden the only one left,
+    		// ensure the panel is empty so we don't pass
+    		// any possibly-entered data to the PDF
+    		appendixAPanel.resetData();
+    		appendixAPanel.validationsDisabled=true;
+    	} else {
+    		appendixAPanel.validationsDisabled=false;
+    	}
+		
+	};
+	
+	var validateIsAppForState = function (thisApp,stateAbbr)
+	{
+		
+		var valid = thisApp=="SBM" ? isSBMState(stateAbbr) : isFFMState(stateAbbr);
+		if (!valid) {
+			cmsexemptions.controls.modalShow("#" + (thisApp=="SBM"?"FFM":"SBM") + "_modal");
+		}
+		
+		return valid;
+	}
+
+	var validateIsAppForFuture = function (wantFuture)
+	{
+		if (wantFuture=="Y") {
+			cmsexemptions.controls.modalShow("#future_modal");
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+     * traverses the form looking for the field "IsOfferedCoverage";
+     * 
+     * if it finds a "Y", then appendix A is required.
+     * 
+     * @memberOf cmsexemptions.affordability
+     * @param {Void} 
+     * @returns {Boolean} if at least one Appendix A is required
+     * @since 0.1.0
+     */
+	var isAppendixARequired = function()
+	{
+		var needAppendixA = false;
+		window.guideBridge.visit(function(field) {
+		    if(field.name === "IsOfferedCoverage") {
+		         if (field.value=="Y") {
+		        	 needAppendixA = true;
+		         }
+		    }
+		});
+		return needAppendixA;
+	};
+	
+	var initAppendixA = function (panel) {
+		$(panel).on("postValidate", handleAppendixAPostValidate);
+	};
+	
+	
+	var handleAppendixAPostValidate = function(evt, isValid) {
+		
+		var panelDom = $(guideBridge._getGuideDomElement(this.somExpression));
+
+		// did the fields fail to validate
+		// and have we offered to suppress the problem?
+		if (!isValid &amp;&amp; this.Incomplete.value!="Y")
+		{
+			panelDom.find(".modal").modal();
+		}
+	};
+	
+	var setAppendixAIncomplete = function(isIncomplete)
+	{
+		// get currently displayed appendix a
+		var som = guideBridge._guide.panel.navigationContext._currentItem.somExpression;
+		if (som!=null)
+		{
+			
+			var appAPanel = window.guideBridge.resolveNode(som);
+			
+			// set the incomplete flag in the data
+			// window.guideBridge.setProperty([som  + ".Incomplete[0]" ],"value",[isIncomplete?"Y":"N"]);
+			
+			// disable this panel's validations
+			if (appAPanel)
+			{
+				// if needs review, disable validations
+				_.each(appAPanel.instanceManager.instances, function(panel) 
+				{
+					panel.validationsDisabled = isIncomplete;
+					panel.Incomplete.value = (isIncomplete?"Y":"N");
+				});
+				// appAPanel.validationsDisabled = isIncomplete;
+				
+				if (isIncomplete)
+				{
+					// rerun validations; this will clear out the errors 
+					window.guideBridge.validate([],som);
+				}
+			}
+		} else {
+			console.log("No SOM for setAppendixAIncomplete");
+		}
+		
+	};
+
+	
+	return {
+		getFilteredDeductionTypes : getFilteredDeductionTypes,
+		getFilteredOtherIncomeTypes : getFilteredOtherIncomeTypes,
+		handleAppendixAPostValidate : handleAppendixAPostValidate,
+		initAppendixA : initAppendixA,
+		isAppendixARequired : isAppendixARequired,
+		isFFMState : isFFMState,
+		isSBMState : isSBMState,
+		setAppendixAIncomplete : setAppendixAIncomplete,
+		updateAppendixACount : updateAppendixACount,
+		validateIsAppForFuture : validateIsAppForFuture,
+		validateIsAppForState : validateIsAppForState,
+		test : test
+	}
+
+}();</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="cmsexemptions.html">cmsexemptions</a></li><li><a href="cmsexemptions.affordability.html">affordability</a></li><li><a href="cmsexemptions.common.html">common</a></li><li><a href="cmsexemptions.formtheme.html">formtheme</a></li><li><a href="cmsexemptions.hardship.html">hardship</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.3</a> on Fri Feb 26 2016 09:50:04 GMT-0500 (EST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

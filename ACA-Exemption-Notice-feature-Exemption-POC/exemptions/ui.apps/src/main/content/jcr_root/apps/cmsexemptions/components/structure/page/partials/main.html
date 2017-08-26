@@ -1,0 +1,56 @@
+<div>
+	<header>
+		<div data-sly-resource="topnav"></div>
+	</header>
+
+    <div class="title-container">
+      <div class="row no-margin full">
+        <div class="col-xs-12 col-md-offset-2 col-md-10">
+          <h2>${currentPage.title || currentPage.name}</h2>
+        </div>
+      </div>
+    </div>
+
+
+	<div id="main-body-content" class="main-body-content" role="main">
+		<div class="lite-card">
+
+			<div class="lite-card-inner">
+				<div class="page__par" data-sly-resource="par"></div>
+			</div>
+		</div>
+
+	</div>
+	<!--/*
+    <div class="page__title" data-sly-resource="${'title' @ decorationTagName='div'}"></div>
+    <div class="page__par" data-sly-resource="par"></div>
+	*/-->
+
+</div>
+
+<footer class="footer-small" role="complementary">
+	<h2 class="accessibility">Footer</h2>
+	<div class="container">
+		<div class="hidden-xs">
+			<div class="row">
+				<div class="col-sm-5 col-lg-3"
+					style="font-size: 10px; line-height: 14px;">
+					<a title="HHS.gov" class="icon eagle" href="http://www.hhs.gov/">
+						HHS.gov </a> <span>A federal government website managed by the
+						U.S. Centers for Medicare &amp; Medicaid Services. 7500 Security
+						Boulevard, Baltimore, MD 21244</span>
+				</div>
+				<div class="col-sm-5 pull-right">
+					<ul class="list-inline pull-right">
+						<li><a title="Whitehouse.gov" class="icon whitehouse"
+							href="http://www.whitehouse.gov/"> Whitehouse.gov </a></li>
+						<li><a title="USA.gov" class="icon usagov"
+							href="http://www.usa.gov/"> USA.gov </a></li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+</footer>
+</div>

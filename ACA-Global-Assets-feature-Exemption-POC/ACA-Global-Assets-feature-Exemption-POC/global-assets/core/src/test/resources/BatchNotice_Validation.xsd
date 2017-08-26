@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.cms.hhs.gov/notices" targetNamespace="http://www.cms.hhs.gov/notices" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="batchNoticeData" type="BatchNoticeType"/>
+	<xs:complexType name="BatchNoticeType">
+		<xs:all>
+			<xs:element name="NoticeDate" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="PolicyId" type="xs:string" minOccurs="0"/>
+			<xs:element name="applicationSignatureDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="SystemDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="NoticeNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="AccountId" minOccurs="0">
+				<xs:simpleType>
+					<xs:union>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="0"></xs:length>
+							</xs:restriction>
+						</xs:simpleType>
+						<xs:simpleType>
+							<xs:restriction base="xs:int"></xs:restriction>
+						</xs:simpleType>
+					</xs:union>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="InsuranceMarketType" minOccurs="0">
+				<xs:simpleType>
+					<xs:union>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="0"></xs:length>
+							</xs:restriction>
+						</xs:simpleType>
+						<xs:simpleType>
+							<xs:restriction base="xs:int"></xs:restriction>
+						</xs:simpleType>
+					</xs:union>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="NoticeTypeCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:union>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="0"></xs:length>
+							</xs:restriction>
+						</xs:simpleType>
+						<xs:simpleType>
+							<xs:restriction base="xs:int"></xs:restriction>
+						</xs:simpleType>
+					</xs:union>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="UniqueNoticeID" minOccurs="0">
+				<xs:simpleType>
+					<xs:union>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="0"></xs:length>
+							</xs:restriction>
+						</xs:simpleType>
+						<xs:simpleType>
+							<xs:restriction base="xs:int"></xs:restriction>
+						</xs:simpleType>
+					</xs:union>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CoverageYear" minOccurs="0">
+				<xs:simpleType>
+					<xs:union>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="0"></xs:length>
+							</xs:restriction>
+						</xs:simpleType>
+						<xs:simpleType>
+							<xs:restriction base="xs:int"></xs:restriction>
+						</xs:simpleType>
+					</xs:union>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="locale" type="xs:string"/>
+			<xs:element name="ApplicationId" minOccurs="0"><xs:simpleType>
+				<xs:union>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:length value="0"></xs:length>
+						</xs:restriction>
+					</xs:simpleType>
+					<xs:simpleType>
+						<xs:restriction base="xs:int"></xs:restriction>
+					</xs:simpleType>
+				</xs:union>
+			</xs:simpleType></xs:element>
+			<xs:element name="Barcode" type="xs:string" minOccurs="0"/>
+			<xs:element name="PostalCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="FileName" type="xs:string" minOccurs="0"/>
+			<xs:element name="FileType" type="xs:string" minOccurs="0"/>
+			<xs:element name="FormName" type="xs:string" minOccurs="0"/>
+			<xs:element name="VersionNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="SubmissionDate">
+				<xs:simpleType>
+					<xs:union>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="0"></xs:length>
+							</xs:restriction>
+						</xs:simpleType>
+						<xs:simpleType>
+							<xs:restriction base="xs:dateTime"></xs:restriction>
+						</xs:simpleType>
+					</xs:union>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TrackingNumber" type="xs:string" minOccurs="0"/>			
+			<xs:element name="NoticeData" type="NoticeDataType" minOccurs="0"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="NoticeDataType">
+		<xs:sequence>
+			<xs:element name="EmployerName" type="xs:string"/>
+			<xs:element name="JobIncomeEmployerName" type="xs:string"/>
+			<xs:element name="EmployeNameMatched" type="xs:string"/>
+			<xs:element name="StreetName1" type="xs:string"/>
+			<xs:element name="CityName" type="xs:string"/>
+			<xs:element name="State" type="xs:string"/>
+			<xs:element name="ZipCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="\d\d\d\d\d-\d\d\d\d|\d\d\d\d\d"></xs:pattern>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="EmployerTelphoneNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="\d\d\d-\d\d\d-\d\d\d\d|\d\d\d\d\d\d\d\d\d\d"></xs:pattern>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="EmployereIN" type="xs:string"/>
+			<xs:element name="ContactPersonFirstName" type="xs:string"/>
+			<xs:element name="ContactPersonLastName" type="xs:string"/>
+			<xs:element name="ContactPersonTelephoneNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="\d\d\d-\d\d\d-\d\d\d\d|\d\d\d\d\d\d\d\d\d\d"></xs:pattern>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>			
+			<xs:element name="PersonFirstName" type="xs:string"/>
+			<xs:element name="PersonLastName" type="xs:string"/>
+			<xs:element name="PersonSuffix" type="xs:string"/>
+			<xs:element name="SSN">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="\d\d\d-\d\d-\d\d\d\d|\d\d\d\d\d\d\d\d\d"></xs:pattern>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="BirthDate" type="xs:dateTime"/>
+			<xs:element name="CoveredInsuredMember" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

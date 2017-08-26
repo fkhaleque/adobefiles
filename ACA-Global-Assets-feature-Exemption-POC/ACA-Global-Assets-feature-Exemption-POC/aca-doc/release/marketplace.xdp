@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xfa generator="Designer_V6.1.0.20150429.1.918869" APIVersion="3.6.15103.0"?>
+<xdp:xdp xmlns:xdp="http://ns.adobe.com/xdp/" timeStamp="2015-10-12T20:42:37Z" uuid="55962756-7e29-49e9-98af-6e3e601e0a41">
+<template xmlns="http://www.xfa.org/schema/xfa-template/3.3/">
+   <?formServer defaultPDFRenderFormat acrobat10.0static?>
+   <subform name="form1" locale="en_US" layout="tb">
+      <pageSet>
+         <pageArea>
+            <medium short="215.9mm" long="279.4mm" stock="custom"/>
+            <contentArea name="ContentArea1" x="10.678mm" y="11.534mm" w="194.31mm" h="248.896mm"/>
+         </pageArea>
+      </pageSet>
+      <subform>
+         <variables>
+            <script contentType="application/x-javascript" name="marketplace">
+var common={};common.utils=function(){var a=function(){if(h())try{xfa.host.messageBox("marketplace.js XFA OK")}catch(a){xfa.host.messageBox(a.message)}else alert("marketplace.js JS OK")},b=function(a,c){if("exclGroup"==a.className||"subform"==a.className||"subformSet"==a.className||"area"==a.className)for(var d=0;d&lt;a.nodes.length;d++)b(a.nodes.item(d),c);else"field"==a.className&amp;&amp;0==a.name.indexOf("dev")&amp;&amp;(c?a.presence="visible":a.presence="hidden")},c=function(a,b){var c="";"undefined"==typeof b&amp;&amp;(b=" ");for(var d=0;d&lt;a.length;d++)null!=a[d]&amp;&amp;(c+=a[d]+b);return c},d=function(a){return null!=a?a.replace(/[^a-zA-Z \-]/g,""):null},e=function(a){return null!=a?a.replace(/[^a-zA-Z\d\- ]/g,""):null},f=function(a){return null!=a?a.replace(/[^0-9]/g,""):null},g=function(a){return a.replace(/^\s+|\s+$/gm,"")},h=function(){return"object"==typeof xfa};return{isXFA:h,concatArray:c,makeNumeric:f,makeAlpha:d,makeAlphaNumeric:e,test:a,devToggleTools:b,trimString:g}}(),common.validation=function(){var a=function(a){if(null!=a){var b=/^[0-9]{4}$/;return b.test(a)}return!1},b=function(a){if(null!=a){var b=/^\d{5}$/;return b.test(a)}return!1},c=function(a,b,c){if(null==a|null==b|null==c)return!1;var d=util.scand("dd-mm-yyyy",c+"-"+b+"-"+a);return!(null==d)},d=function(a){if(null!=a){var b=/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;return b.test(a)}return!1},e=function(a){if(null!=a){var b=/^[0-9]{10}$/;return b.test(a)}return!1},f=function(a){if(null!=a){var b=/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$/;return b.test(a)}return!1},g=function(a){if(null!=a){var b=/^(?:A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[AT]|W[AIVY])*$/;return b.test(a.toUpperCase())}return!1},h=function(a){if(null!=a){var b=/^(?!000|666)(?:[0-6][0-9]{2}|7(?:[0-6][0-9]|7[0-2]))-?(?!00)[0-9]{2}-?(?!0000)[0-9]{4}$/;return b.test(a)}return!1},i=function(a,b,c){var d=b.formattedValue+"-"+a.formattedValue+"-"+c.formattedValue,e=util.scand("dd-mm-yyyy",d);return null!=e?!0:!1},j=function(a){var b=Date.parse(a);return isNaN(parseFloat(b))?!1:b&gt;(new Date).getTime()},k=function(a,b){var c=Date.parse(a),d=Date.parse(b);return isNaN(parseFloat(c))||isNaN(parseFloat(d))?!1:d&gt;c},l=function(a){return void 0!==typeof a&amp;&amp;null!=a?!(j(a)||k(a,"1890-01-01")):!1};return{isDateFuture:j,isDatePriorTo:k,isValidBirthday:l,isValidYear:a,isValidZIP:b,isValidDate:c,isValidDateString:d,isValidPhone:e,isValidEmail:f,isValidState:g,isValidSSN:h,isValidMultiPartDate:i}}();
+<?templateDesigner isFragment yes?>
+               <?templateDesigner fragmentTitle marketplace?></script>
+         </variables>
+      </subform>
+   </subform>
+   <?templateDesigner FormTargetVersion 33?>
+   <?templateDesigner Rulers horizontal:1, vertical:1, guidelines:1, crosshairs:0?>
+   <?templateDesigner Zoom 209?></template>
+<config xmlns="http://www.xfa.org/schema/xci/3.0/">
+   <agent name="designer">
+      <!--  [0..n]  -->
+      <destination>pdf</destination>
+      <pdf>
+         <!--  [0..n]  -->
+         <fontInfo/>
+      </pdf>
+   </agent>
+   <present>
+      <!--  [0..n]  -->
+      <destination>pdf</destination>
+      <pdf>
+         <!--  [0..n]  -->
+         <fontInfo/>
+         <version>1.7</version>
+         <adobeExtensionLevel>8</adobeExtensionLevel>
+      </pdf>
+      <xdp>
+         <packets>*</packets>
+      </xdp>
+   </present>
+</config>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.4-c005 78.150055, 2013/08/07-22:58:47        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:pdf="http://ns.adobe.com/pdf/1.3/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:lcd="http://ns.adobe.com/livecycle/designer/" xmlns:dc="http://purl.org/dc/elements/1.1/" rdf:about="">
+         <xmp:MetadataDate>2015-10-12T20:42:37Z</xmp:MetadataDate>
+         <xmp:CreatorTool>Designer 6.1</xmp:CreatorTool>
+         <pdf:Producer>Designer 6.1</pdf:Producer>
+         <xmpMM:DocumentID>uuid:55962756-7e29-49e9-98af-6e3e601e0a41</xmpMM:DocumentID>
+         <lcd:fragmentCatalog>
+            <rdf:Seq>
+               <rdf:li rdf:parseType="Resource">
+                  <dc:title>
+                     <rdf:Alt>
+                        <rdf:li xml:lang="x-default">marketplace</rdf:li>
+                     </rdf:Alt>
+                  </dc:title>
+                  <dc:description>
+                     <rdf:Alt>
+                        <rdf:li xml:lang="x-default"/>
+                     </rdf:Alt>
+                  </dc:description>
+                  <dc:identifier>$template.form1.#subform.#variables.marketplace</dc:identifier>
+                  <lcd:fragmentRole>ScriptObject</lcd:fragmentRole>
+               </rdf:li>
+            </rdf:Seq>
+         </lcd:fragmentCatalog>
+      </rdf:Description>
+   </rdf:RDF>
+</x:xmpmeta>
+<localeSet xmlns="http://www.xfa.org/schema/xfa-locale-set/2.7/">
+   <locale name="en_US" desc="English (United States)">
+      <calendarSymbols name="gregorian">
+         <monthNames>
+            <month>January</month>
+            <month>February</month>
+            <month>March</month>
+            <month>April</month>
+            <month>May</month>
+            <month>June</month>
+            <month>July</month>
+            <month>August</month>
+            <month>September</month>
+            <month>October</month>
+            <month>November</month>
+            <month>December</month>
+         </monthNames>
+         <monthNames abbr="1">
+            <month>Jan</month>
+            <month>Feb</month>
+            <month>Mar</month>
+            <month>Apr</month>
+            <month>May</month>
+            <month>Jun</month>
+            <month>Jul</month>
+            <month>Aug</month>
+            <month>Sep</month>
+            <month>Oct</month>
+            <month>Nov</month>
+            <month>Dec</month>
+         </monthNames>
+         <dayNames>
+            <day>Sunday</day>
+            <day>Monday</day>
+            <day>Tuesday</day>
+            <day>Wednesday</day>
+            <day>Thursday</day>
+            <day>Friday</day>
+            <day>Saturday</day>
+         </dayNames>
+         <dayNames abbr="1">
+            <day>Sun</day>
+            <day>Mon</day>
+            <day>Tue</day>
+            <day>Wed</day>
+            <day>Thu</day>
+            <day>Fri</day>
+            <day>Sat</day>
+         </dayNames>
+         <meridiemNames>
+            <meridiem>AM</meridiem>
+            <meridiem>PM</meridiem>
+         </meridiemNames>
+         <eraNames>
+            <era>BC</era>
+            <era>AD</era>
+         </eraNames>
+      </calendarSymbols>
+      <datePatterns>
+         <datePattern name="full">EEEE, MMMM D, YYYY</datePattern>
+         <datePattern name="long">MMMM D, YYYY</datePattern>
+         <datePattern name="med">MMM D, YYYY</datePattern>
+         <datePattern name="short">M/D/YY</datePattern>
+      </datePatterns>
+      <timePatterns>
+         <timePattern name="full">h:MM:SS A Z</timePattern>
+         <timePattern name="long">h:MM:SS A Z</timePattern>
+         <timePattern name="med">h:MM:SS A</timePattern>
+         <timePattern name="short">h:MM A</timePattern>
+      </timePatterns>
+      <dateTimeSymbols>GyMdkHmsSEDFwWahKzZ</dateTimeSymbols>
+      <numberPatterns>
+         <numberPattern name="numeric">z,zz9.zzz</numberPattern>
+         <numberPattern name="currency">$z,zz9.99|($z,zz9.99)</numberPattern>
+         <numberPattern name="percent">z,zz9%</numberPattern>
+      </numberPatterns>
+      <numberSymbols>
+         <numberSymbol name="decimal">.</numberSymbol>
+         <numberSymbol name="grouping">,</numberSymbol>
+         <numberSymbol name="percent">%</numberSymbol>
+         <numberSymbol name="minus">-</numberSymbol>
+         <numberSymbol name="zero">0</numberSymbol>
+      </numberSymbols>
+      <currencySymbols>
+         <currencySymbol name="symbol">$</currencySymbol>
+         <currencySymbol name="isoname">USD</currencySymbol>
+         <currencySymbol name="decimal">.</currencySymbol>
+      </currencySymbols>
+      <typefaces>
+         <typeface name="Myriad Pro"/>
+         <typeface name="Minion Pro"/>
+         <typeface name="Courier Std"/>
+         <typeface name="Adobe Pi Std"/>
+         <typeface name="Adobe Hebrew"/>
+         <typeface name="Adobe Arabic"/>
+         <typeface name="Adobe Thai"/>
+         <typeface name="Kozuka Gothic Pro-VI M"/>
+         <typeface name="Kozuka Mincho Pro-VI R"/>
+         <typeface name="Adobe Ming Std L"/>
+         <typeface name="Adobe Song Std L"/>
+         <typeface name="Adobe Myungjo Std M"/>
+         <typeface name="Adobe Devanagari"/>
+      </typefaces>
+   </locale>
+</localeSet></xdp:xdp>

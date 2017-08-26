@@ -1,0 +1,13 @@
+Instructions
+
+https://helpx.adobe.com/aem-forms/6/changing-page-zero-content-designer.html
+
+
+1)  In Designer, add this property:
+
+_pagezerocontent
+
+
+2)  Open "pagezerocontent_bitterFont_bodyOnly.txt" file in Notepad/TextPad and copy into _pagezerocontent property value.
+
+	Note: Body content must all be in single line (i.e., no line breaks)

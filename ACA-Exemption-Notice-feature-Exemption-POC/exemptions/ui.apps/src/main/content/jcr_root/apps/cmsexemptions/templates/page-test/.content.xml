@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:description="Template for CMS Test"
+    jcr:primaryType="cq:Template"
+    jcr:title="CMS Test Page"
+    allowedPaths="[/content/cmsexemptions]"
+    ranking="{Long}1">
+    <jcr:content
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="cmsexemptions/components/structure/page">
+        <logo
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="cmsexemptions/components/structure/logo"/>
+        <title
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="cmsexemptions/components/content/title"/>
+        <topnav
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="cmsexemptions/components/structure/topnav"/>
+        <par
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <text
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cmsexemptions/components/content/text"
+                text="&lt;p>This is a home page&lt;/p>"
+                textIsRich="true"/>
+            
+        </par>
+    </jcr:content>
+</jcr:root>
